@@ -9,6 +9,24 @@
 import Foundation
 import UIKit
 
+extension UIColor {
+    
+    class func fromHex(hex: Int) -> UIColor {
+        return UIColor(
+            red: CGFloat((hex & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((hex & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(hex & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+}
+
+extension CGColor {
+    class func fromHex(hex: Int) -> CGColor {
+        return UIColor.fromHex(hex).CGColor
+    }
+}
+
 // Pop Up Styles
 public enum SCLAlertViewStyle {
     case Success, Error, Notice, Warning, Info, Edit, Wait
@@ -181,10 +199,10 @@ public class SCLAlertView: UIViewController {
         viewText.textContainer.lineFragmentPadding = 0;
         viewText.font = UIFont(name: kDefaultFont, size:14)
         // Colours
-        contentView.backgroundColor = 0xFFFFFF.toUIColor()
-        labelTitle.textColor = 0x4D4D4D.toUIColor()
-        viewText.textColor = 0x4D4D4D.toUIColor()
-        contentView.layer.borderColor = 0xCCCCCC.toCGColor()
+        contentView.backgroundColor = UIColor.fromHex(0xFFFFFF)
+        labelTitle.textColor = UIColor.fromHex(0x4D4D4D)
+        viewText.textColor = UIColor.fromHex(0x4D4D4D)
+        contentView.layer.borderColor = CGColor.fromHex(0xCCCCCC)
         //Gesture Recognizer for tapping outside the textinput
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SCLAlertView.tapped(_:)))
         tapGesture.numberOfTapsRequired = 1
@@ -449,7 +467,7 @@ public class SCLAlertView: UIViewController {
         viewColor = UIColor()
         var iconImage: UIImage?
         let colorInt = colorStyle ?? style.defaultColorInt
-        viewColor = colorInt.toUIColor()
+        viewColor = UIColor.fromHex(Int(colorInt))
         // Icon style
         switch style {
         case .Success:
@@ -536,7 +554,8 @@ public class SCLAlertView: UIViewController {
         }
         for btn in buttons {
             btn.backgroundColor = viewColor
-            btn.setTitleColor(colorTextButton?.toUIColor() ?? 0xFFFFFF.toUIColor(), forState:UIControlState.Normal)
+            let color = Int(colorTextButton ?? 0xFFFFFF)
+            btn.setTitleColor(UIColor.fromHex(color), forState:UIControlState.Normal)
         }
         
         // Adding duration
@@ -613,11 +632,6 @@ class SCLAlertViewStyleKit : NSObject {
         static var imageOfEdit: UIImage?
         static var editTargets: [AnyObject]?
     }
-    
-    // Initialization
-    /// swift 1.2 abolish func load
-    //    override class func load() {
-    //    }
     
     // Drawing Methods
     class func drawCheckmark() {
