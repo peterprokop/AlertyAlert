@@ -3,7 +3,7 @@ AlertyAlert
 
 Animated Alert View written in Swift, which can be used as a `UIAlertView` or `UIAlertController` replacement.
 
-![BackgroundImage](https://raw.githubusercontent.com/vikmeup/SCPopUpView/master/successScreenshot.png)_
+![BackgroundImage](https://raw.githubusercontent.com/vikmeup/SCPopUpView/master/successScreenshot.png) &nbps;
 ![BackgroundImage](https://raw.githubusercontent.com/vikmeup/SCPopUpView/master/editScreenshot.png)
 
 Easy to use
