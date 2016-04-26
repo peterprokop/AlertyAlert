@@ -7,31 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		70264F031B0F588800B32B18 /* SCLAlertView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70264EF71B0F588700B32B18 /* SCLAlertView.framework */; };
+		0DE198631CCFB6480009DDE7 /* AlertyAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE198611CCFB6480009DDE7 /* AlertyAlert.swift */; };
+		0DE198641CCFB6480009DDE7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0DE198621CCFB6480009DDE7 /* Info.plist */; };
 		70264F141B0F58B400B32B18 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70264F131B0F58B400B32B18 /* UIKit.framework */; };
 		70264F161B0F58BE00B32B18 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70264F151B0F58BE00B32B18 /* Foundation.framework */; };
-		70264F181B0F592500B32B18 /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70264F171B0F592500B32B18 /* SCLAlertView.swift */; };
-		9EE073171C9D7F6B002B43FD /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70264F171B0F592500B32B18 /* SCLAlertView.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		70264F041B0F588800B32B18 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 70264EEE1B0F588700B32B18 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 70264EF61B0F588700B32B18;
-			remoteInfo = SCLAlertView;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		70264EF71B0F588700B32B18 /* SCLAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SCLAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		70264EFB1B0F588700B32B18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		70264F021B0F588800B32B18 /* SCLAlertViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SCLAlertViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		70264F081B0F588800B32B18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DE198611CCFB6480009DDE7 /* AlertyAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertyAlert.swift; sourceTree = "<group>"; };
+		0DE198621CCFB6480009DDE7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70264EF71B0F588700B32B18 /* AlertyAlert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlertyAlert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70264F131B0F58B400B32B18 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		70264F151B0F58BE00B32B18 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		70264F171B0F592500B32B18 /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,24 +31,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		70264EFF1B0F588800B32B18 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				70264F031B0F588800B32B18 /* SCLAlertView.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DE198601CCFB6480009DDE7 /* AlertyAlert */ = {
+			isa = PBXGroup;
+			children = (
+				0DE198611CCFB6480009DDE7 /* AlertyAlert.swift */,
+				0DE198621CCFB6480009DDE7 /* Info.plist */,
+			);
+			path = AlertyAlert;
+			sourceTree = "<group>";
+		};
 		70264EED1B0F588700B32B18 = {
 			isa = PBXGroup;
 			children = (
+				0DE198601CCFB6480009DDE7 /* AlertyAlert */,
 				70264F151B0F58BE00B32B18 /* Foundation.framework */,
 				70264F131B0F58B400B32B18 /* UIKit.framework */,
-				70264EF91B0F588700B32B18 /* SCLAlertView */,
-				70264F061B0F588800B32B18 /* SCLAlertViewTests */,
 				70264EF81B0F588700B32B18 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,43 +56,9 @@
 		70264EF81B0F588700B32B18 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				70264EF71B0F588700B32B18 /* SCLAlertView.framework */,
-				70264F021B0F588800B32B18 /* SCLAlertViewTests.xctest */,
+				70264EF71B0F588700B32B18 /* AlertyAlert.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		70264EF91B0F588700B32B18 /* SCLAlertView */ = {
-			isa = PBXGroup;
-			children = (
-				70264F171B0F592500B32B18 /* SCLAlertView.swift */,
-				70264EFA1B0F588700B32B18 /* Supporting Files */,
-			);
-			path = SCLAlertView;
-			sourceTree = "<group>";
-		};
-		70264EFA1B0F588700B32B18 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				70264EFB1B0F588700B32B18 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		70264F061B0F588800B32B18 /* SCLAlertViewTests */ = {
-			isa = PBXGroup;
-			children = (
-				70264F071B0F588800B32B18 /* Supporting Files */,
-			);
-			path = SCLAlertViewTests;
-			sourceTree = "<group>";
-		};
-		70264F071B0F588800B32B18 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				70264F081B0F588800B32B18 /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,9 +74,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		70264EF61B0F588700B32B18 /* SCLAlertView */ = {
+		70264EF61B0F588700B32B18 /* AlertyAlert */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 70264F0D1B0F588800B32B18 /* Build configuration list for PBXNativeTarget "SCLAlertView" */;
+			buildConfigurationList = 70264F0D1B0F588800B32B18 /* Build configuration list for PBXNativeTarget "AlertyAlert" */;
 			buildPhases = (
 				70264EF21B0F588700B32B18 /* Sources */,
 				70264EF31B0F588700B32B18 /* Frameworks */,
@@ -134,28 +87,10 @@
 			);
 			dependencies = (
 			);
-			name = SCLAlertView;
+			name = AlertyAlert;
 			productName = SCLAlertView;
-			productReference = 70264EF71B0F588700B32B18 /* SCLAlertView.framework */;
+			productReference = 70264EF71B0F588700B32B18 /* AlertyAlert.framework */;
 			productType = "com.apple.product-type.framework";
-		};
-		70264F011B0F588800B32B18 /* SCLAlertViewTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 70264F101B0F588800B32B18 /* Build configuration list for PBXNativeTarget "SCLAlertViewTests" */;
-			buildPhases = (
-				70264EFE1B0F588800B32B18 /* Sources */,
-				70264EFF1B0F588800B32B18 /* Frameworks */,
-				70264F001B0F588800B32B18 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				70264F051B0F588800B32B18 /* PBXTargetDependency */,
-			);
-			name = SCLAlertViewTests;
-			productName = SCLAlertViewTests;
-			productReference = 70264F021B0F588800B32B18 /* SCLAlertViewTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -171,12 +106,9 @@
 					70264EF61B0F588700B32B18 = {
 						CreatedOnToolsVersion = 6.3.2;
 					};
-					70264F011B0F588800B32B18 = {
-						CreatedOnToolsVersion = 6.3.2;
-					};
 				};
 			};
-			buildConfigurationList = 70264EF11B0F588700B32B18 /* Build configuration list for PBXProject "SCLAlertView" */;
+			buildConfigurationList = 70264EF11B0F588700B32B18 /* Build configuration list for PBXProject "AlertyAlert" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -188,8 +120,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				70264EF61B0F588700B32B18 /* SCLAlertView */,
-				70264F011B0F588800B32B18 /* SCLAlertViewTests */,
+				70264EF61B0F588700B32B18 /* AlertyAlert */,
 			);
 		};
 /* End PBXProject section */
@@ -199,13 +130,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		70264F001B0F588800B32B18 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				0DE198641CCFB6480009DDE7 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,27 +141,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70264F181B0F592500B32B18 /* SCLAlertView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		70264EFE1B0F588800B32B18 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9EE073171C9D7F6B002B43FD /* SCLAlertView.swift in Sources */,
+				0DE198631CCFB6480009DDE7 /* AlertyAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		70264F051B0F588800B32B18 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 70264EF61B0F588700B32B18 /* SCLAlertView */;
-			targetProxy = 70264F041B0F588800B32B18 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		70264F0B1B0F588800B32B18 /* Debug */ = {
@@ -335,11 +244,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SCLAlertView/Info.plist;
+				INFOPLIST_FILE = AlertyAlert/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = AlertyAlert;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -351,49 +260,19 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SCLAlertView/Info.plist;
+				INFOPLIST_FILE = AlertyAlert/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = AlertyAlert;
 				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		70264F111B0F588800B32B18 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SCLAlertViewTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		70264F121B0F588800B32B18 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SCLAlertViewTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		70264EF11B0F588700B32B18 /* Build configuration list for PBXProject "SCLAlertView" */ = {
+		70264EF11B0F588700B32B18 /* Build configuration list for PBXProject "AlertyAlert" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				70264F0B1B0F588800B32B18 /* Debug */,
@@ -402,20 +281,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		70264F0D1B0F588800B32B18 /* Build configuration list for PBXNativeTarget "SCLAlertView" */ = {
+		70264F0D1B0F588800B32B18 /* Build configuration list for PBXNativeTarget "AlertyAlert" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				70264F0E1B0F588800B32B18 /* Debug */,
 				70264F0F1B0F588800B32B18 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		70264F101B0F588800B32B18 /* Build configuration list for PBXNativeTarget "SCLAlertViewTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				70264F111B0F588800B32B18 /* Debug */,
-				70264F121B0F588800B32B18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

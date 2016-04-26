@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CEABB2401942AD9700FCB13C"
-               BuildableName = "SCLAlertViewExample.app"
-               BlueprintName = "SCLAlertViewExample"
-               ReferencedContainer = "container:../../../../../../../../../nfs/zfs-student-5/users/2013_paris/rkorimba/rkorimba_alertview/Example/SCLAlertViewExample.xcodeproj">
+               BlueprintIdentifier = "70264EF61B0F588700B32B18"
+               BuildableName = "AlertyAlert.framework"
+               BlueprintName = "AlertyAlert"
+               ReferencedContainer = "container:AlertyAlert.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -28,79 +28,80 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CEABB2541942AD9700FCB13C"
-               BuildableName = "SCLAlertViewExampleTests.xctest"
-               BlueprintName = "SCLAlertViewExampleTests"
-               ReferencedContainer = "container:../../../../../../../../../nfs/zfs-student-5/users/2013_paris/rkorimba/rkorimba_alertview/Example/SCLAlertViewExample.xcodeproj">
+               BlueprintIdentifier = "70264F011B0F588800B32B18"
+               BuildableName = "AlertyAlert.xctest"
+               BlueprintName = "AlertyAlertTests"
+               ReferencedContainer = "container:AlertyAlert.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      buildConfiguration = "Debug">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CEABB2541942AD9700FCB13C"
-               BuildableName = "SCLAlertViewExampleTests.xctest"
-               BlueprintName = "SCLAlertViewExampleTests"
-               ReferencedContainer = "container:../../../../../../../../../nfs/zfs-student-5/users/2013_paris/rkorimba/rkorimba_alertview/Example/SCLAlertViewExample.xcodeproj">
+               BlueprintIdentifier = "70264F011B0F588800B32B18"
+               BuildableName = "AlertyAlert.xctest"
+               BlueprintName = "AlertyAlertTests"
+               ReferencedContainer = "container:AlertyAlert.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CEABB2401942AD9700FCB13C"
-            BuildableName = "SCLAlertViewExample.app"
-            BlueprintName = "SCLAlertViewExample"
-            ReferencedContainer = "container:../../../../../../../../../nfs/zfs-student-5/users/2013_paris/rkorimba/rkorimba_alertview/Example/SCLAlertViewExample.xcodeproj">
+            BlueprintIdentifier = "70264EF61B0F588700B32B18"
+            BuildableName = "AlertyAlert.framework"
+            BlueprintName = "AlertyAlert"
+            ReferencedContainer = "container:AlertyAlert.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <AdditionalOptions>
+      </AdditionalOptions>
    </TestAction>
    <LaunchAction
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CEABB2401942AD9700FCB13C"
-            BuildableName = "SCLAlertViewExample.app"
-            BlueprintName = "SCLAlertViewExample"
-            ReferencedContainer = "container:../../../../../../../../../nfs/zfs-student-5/users/2013_paris/rkorimba/rkorimba_alertview/Example/SCLAlertViewExample.xcodeproj">
+            BlueprintIdentifier = "70264EF61B0F588700B32B18"
+            BuildableName = "AlertyAlert.framework"
+            BlueprintName = "AlertyAlert"
+            ReferencedContainer = "container:AlertyAlert.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
+      buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CEABB2401942AD9700FCB13C"
-            BuildableName = "SCLAlertViewExample.app"
-            BlueprintName = "SCLAlertViewExample"
-            ReferencedContainer = "container:../../../../../../../../../nfs/zfs-student-5/users/2013_paris/rkorimba/rkorimba_alertview/Example/SCLAlertViewExample.xcodeproj">
+            BlueprintIdentifier = "70264EF61B0F588700B32B18"
+            BuildableName = "AlertyAlert.framework"
+            BlueprintName = "AlertyAlert"
+            ReferencedContainer = "container:AlertyAlert.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

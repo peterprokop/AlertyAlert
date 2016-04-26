@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Example/SCLAlertViewExample.xcodeproj">
+      location = "group:/Users/peterprokop/dev/ios/AlertyAlert/Example/AlertyAlertExample.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:SCLAlertView.xcodeproj">
+      location = "group:/Users/peterprokop/dev/ios/AlertyAlert/AlertyAlert.xcodeproj">
    </FileRef>
 </Workspace>
