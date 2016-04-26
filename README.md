@@ -1,7 +1,7 @@
-SCLAlertView
+AlertyAlert
 ===========
 
-Animated Alert View written in Swift, which can be used as a `UIAlertView` or `UIAlertController` replacement. Since `UIAlertView` is deprecated and `UIAlertController` only works on iOS 8.x or above, if you have a Swift project where you want to support iOS 7.x too, SCLAlertView is an ideal substitution.
+Animated Alert View written in Swift, which can be used as a `UIAlertView` or `UIAlertController` replacement.
 
 ![BackgroundImage](https://raw.githubusercontent.com/vikmeup/SCPopUpView/master/successScreenshot.png)_
 ![BackgroundImage](https://raw.githubusercontent.com/vikmeup/SCPopUpView/master/editScreenshot.png)
@@ -111,37 +111,3 @@ alert.addButton("Show Name") {
 }
 alert.showEdit("Edit View", subTitle: "This alert view shows a text box")
 ```
-
-### Alert View Styles
-
-```swift
-enum SCLAlertViewStyle: Int {
-    case Success, Error, Notice, Warning, Info, Edit, Wait
-}
-```
-
-Installation
----
-
-SCLAlertView is available through [CocoaPods](http://cocoapods.org).
-
-To install add the following line to your Podfile:
-
-    pod 'SCLAlertView'
-
-Collaboration
----
-
-I tried to build an easy to use API, while beeing flexible enough for multiple variations, but I'm sure there are ways of improving and adding more features, so feel free to collaborate with ideas, issues and/or pull requests.
-
-Incoming improvements
----
-
-- More animations
-- Performance tests
-
-Has been developed initially for the [Scroll Feed](https://itunes.apple.com/us/app/scroll-feed/id842422195?ls=1&mt=8) app
-
-- Design [@SherzodMx](https://twitter.com/SherzodMx) Sherzod Max
-- Development [@vikmeup](https://twitter.com/vikmeup) Viktor Radchenko
-- Improvements by [@bih](http://github.com/bih) Bilawal Hameed, [@rizjoj](http://github.com/rizjoj) Riz Joj
