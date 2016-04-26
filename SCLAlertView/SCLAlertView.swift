@@ -102,6 +102,7 @@ public typealias DismissBlock = () -> Void
 
 // The Main Class
 public class AlertyAlert: UIViewController {
+    
     // Fonts
     static var titleFont        = UIFont(name: "HelveticaNeue-Bold", size: 18)
     static var messageFont      = UIFont(name: "HelveticaNeue", size: 14)
@@ -187,6 +188,8 @@ public class AlertyAlert: UIViewController {
         
         // Title
         labelTitle.numberOfLines = 1
+        labelTitle.adjustsFontSizeToFitWidth = true
+        labelTitle.minimumScaleFactor = 0.5
         labelTitle.textAlignment = .Center
         labelTitle.font = AlertyAlert.titleFont
         labelTitle.frame = CGRect(x:12, y:kTitleTop, width: kWindowWidth - 24, height:kTitleHeight)
@@ -242,6 +245,7 @@ public class AlertyAlert: UIViewController {
         }
         
         let windowHeight = consumedHeight + viewTextHeight
+        
         // Set frames
         var x = (sz.width - kWindowWidth) / 2
         var y = (sz.height - windowHeight - (kCircleHeight / 8)) / 2
@@ -259,6 +263,7 @@ public class AlertyAlert: UIViewController {
         y = kTitleTop + kTitleHeight + titleOffset
         viewText.frame = CGRect(x:12, y:y, width: kWindowWidth - 24, height:kTextHeight)
         viewText.frame = CGRect(x:12, y:y, width: viewTextWidth, height:viewTextHeight)
+        
         // Text fields
         y += viewTextHeight + 14.0
         for txt in inputs {
@@ -266,6 +271,7 @@ public class AlertyAlert: UIViewController {
             txt.layer.cornerRadius = fieldCornerRadius
             y += kTextFieldHeight
         }
+        
         // Buttons
         for btn in buttons {
             btn.frame = CGRect(x:12, y:y, width:kWindowWidth - 24, height:35)
