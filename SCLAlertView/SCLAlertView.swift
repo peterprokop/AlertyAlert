@@ -1,16 +1,7 @@
-//
-//  SCLAlertView.swift
-//  SCLAlertView Example
-//
-//  Created by Viktor Radchenko on 6/5/14.
-//  Copyright (c) 2014 Viktor Radchenko. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
 extension UIColor {
-    
     class func fromHex(hex: Int) -> UIColor {
         return UIColor(
             red: CGFloat((hex & 0xFF0000) >> 16) / 255.0,
@@ -28,7 +19,7 @@ extension CGColor {
 }
 
 // Pop Up Styles
-public enum SCLAlertViewStyle {
+public enum AlertyAlertStyle {
     case Success, Error, Notice, Warning, Info, Edit, Wait
     
     var defaultColorInt: UInt {
@@ -79,12 +70,12 @@ public class SCLButton: UIButton {
 }
 
 // Allow alerts to be closed/renamed in a chainable manner
-// Example: SCLAlertView().showSuccess(self, title: "Test", subTitle: "Value").close()
-public class SCLAlertViewResponder {
-    let alertview: SCLAlertView
+// Example: AlertyAlert().showSuccess(self, title: "Test", subTitle: "Value").close()
+public class AlertyAlertResponder {
+    let alertview: AlertyAlert
     
     // Initialisation and Title/Subtitle/Close functions
-    public init(alertview: SCLAlertView) {
+    public init(alertview: AlertyAlert) {
         self.alertview = alertview
     }
     
@@ -110,7 +101,13 @@ let kCircleHeightBackground: CGFloat = 62.0
 public typealias DismissBlock = () -> Void
 
 // The Main Class
-public class SCLAlertView: UIViewController {
+public class AlertyAlert: UIViewController {
+    // Fonts
+    static var titleFont        = UIFont(name: "HelveticaNeue-Bold", size: 18)
+    static var messageFont      = UIFont(name: "HelveticaNeue", size: 14)
+    static var buttonFont       = UIFont(name: "HelveticaNeue", size: 14)
+    static var textFieldFont    = UIFont(name: "HelveticaNeue", size: 14)
+    
     let kDefaultShadowOpacity: CGFloat = 0.7
     let kCircleTopPosition: CGFloat = -12.0
     let kCircleBackgroundTopPosition: CGFloat = -15.0
@@ -123,10 +120,6 @@ public class SCLAlertView: UIViewController {
     var kTextHeight: CGFloat = 90.0
     let kTextFieldHeight: CGFloat = 45.0
     let kButtonHeight: CGFloat = 45.0
-    
-    // Font
-    let kDefaultFont = "HelveticaNeue"
-    let kButtonFont = "HelveticaNeue-Bold"
     
     // UI Colour
     var viewColor = UIColor()
@@ -156,7 +149,7 @@ public class SCLAlertView: UIViewController {
     var dismissBlock : DismissBlock?
     private var inputs = [UITextField]()
     internal var buttons = [SCLButton]()
-    private var selfReference: SCLAlertView?
+    private var selfReference: AlertyAlert?
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("NSCoding not supported")
@@ -164,14 +157,17 @@ public class SCLAlertView: UIViewController {
     
     required public init() {
         super.init(nibName:nil, bundle:nil)
+        
         // Set up main view
         view.frame = UIScreen.mainScreen().bounds
         view.autoresizingMask = [UIViewAutoresizing.FlexibleHeight, UIViewAutoresizing.FlexibleWidth]
         view.backgroundColor = UIColor(red:0, green:0, blue:0, alpha:kDefaultShadowOpacity)
         view.addSubview(baseView)
+        
         // Base View
         baseView.frame = view.frame
         baseView.addSubview(contentView)
+        
         // Content View
         contentView.backgroundColor = UIColor(white:1, alpha:1)
         contentView.layer.cornerRadius = contentViewCornerRadius
@@ -179,6 +175,7 @@ public class SCLAlertView: UIViewController {
         contentView.layer.borderWidth = 0.5
         contentView.addSubview(labelTitle)
         contentView.addSubview(viewText)
+        
         // Circle View
         circleBG.backgroundColor = UIColor.whiteColor()
         circleBG.layer.cornerRadius = circleBG.frame.size.height / 2
@@ -187,24 +184,28 @@ public class SCLAlertView: UIViewController {
         let x = (kCircleHeightBackground - kCircleHeight) / 2
         circleView.frame = CGRect(x:x, y:x, width:kCircleHeight, height:kCircleHeight)
         circleView.layer.cornerRadius = circleView.frame.size.height / 2
+        
         // Title
         labelTitle.numberOfLines = 1
         labelTitle.textAlignment = .Center
-        labelTitle.font = UIFont(name: kDefaultFont, size:20)
+        labelTitle.font = AlertyAlert.titleFont
         labelTitle.frame = CGRect(x:12, y:kTitleTop, width: kWindowWidth - 24, height:kTitleHeight)
+        
         // View text
         viewText.editable = false
         viewText.textAlignment = .Center
         viewText.textContainerInset = UIEdgeInsetsZero
         viewText.textContainer.lineFragmentPadding = 0;
-        viewText.font = UIFont(name: kDefaultFont, size:14)
+        viewText.font = AlertyAlert.messageFont
+        
         // Colours
         contentView.backgroundColor = UIColor.fromHex(0xFFFFFF)
         labelTitle.textColor = UIColor.fromHex(0x4D4D4D)
         viewText.textColor = UIColor.fromHex(0x4D4D4D)
         contentView.layer.borderColor = CGColor.fromHex(0xCCCCCC)
+        
         //Gesture Recognizer for tapping outside the textinput
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SCLAlertView.tapped(_:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(AlertyAlert.tapped(_:)))
         tapGesture.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(tapGesture)
     }
@@ -275,8 +276,8 @@ public class SCLAlertView: UIViewController {
     
     override public func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SCLAlertView.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil);
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SCLAlertView.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AlertyAlert.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AlertyAlert.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil);
     }
     
     override public func viewDidDisappear(animated: Bool) {
@@ -297,7 +298,7 @@ public class SCLAlertView: UIViewController {
         // Add text field
         let txt = UITextField()
         txt.borderStyle = UITextBorderStyle.RoundedRect
-        txt.font = UIFont(name:kDefaultFont, size: 14)
+        txt.font = AlertyAlert.textFieldFont
         txt.autocapitalizationType = UITextAutocapitalizationType.Words
         txt.clearButtonMode = UITextFieldViewMode.WhileEditing
         txt.layer.masksToBounds = true
@@ -314,9 +315,9 @@ public class SCLAlertView: UIViewController {
         let btn = addButton(title)
         btn.actionType = SCLActionType.Closure
         btn.action = action
-        btn.addTarget(self, action:#selector(SCLAlertView.buttonTapped(_:)), forControlEvents:.TouchUpInside)
-        btn.addTarget(self, action:#selector(SCLAlertView.buttonTapDown(_:)), forControlEvents:[.TouchDown, .TouchDragEnter])
-        btn.addTarget(self, action:#selector(SCLAlertView.buttonRelease(_:)), forControlEvents:[.TouchUpInside, .TouchUpOutside, .TouchCancel, .TouchDragOutside] )
+        btn.addTarget(self, action:#selector(AlertyAlert.buttonTapped(_:)), forControlEvents:.TouchUpInside)
+        btn.addTarget(self, action:#selector(AlertyAlert.buttonTapDown(_:)), forControlEvents:[.TouchDown, .TouchDragEnter])
+        btn.addTarget(self, action:#selector(AlertyAlert.buttonRelease(_:)), forControlEvents:[.TouchUpInside, .TouchUpOutside, .TouchCancel, .TouchDragOutside] )
         return btn
     }
     
@@ -325,20 +326,21 @@ public class SCLAlertView: UIViewController {
         btn.actionType = SCLActionType.Selector
         btn.target = target
         btn.selector = selector
-        btn.addTarget(self, action:#selector(SCLAlertView.buttonTapped(_:)), forControlEvents:.TouchUpInside)
-        btn.addTarget(self, action:#selector(SCLAlertView.buttonTapDown(_:)), forControlEvents:[.TouchDown, .TouchDragEnter])
-        btn.addTarget(self, action:#selector(SCLAlertView.buttonRelease(_:)), forControlEvents:[.TouchUpInside, .TouchUpOutside, .TouchCancel, .TouchDragOutside] )
+        btn.addTarget(self, action:#selector(AlertyAlert.buttonTapped(_:)), forControlEvents:.TouchUpInside)
+        btn.addTarget(self, action:#selector(AlertyAlert.buttonTapDown(_:)), forControlEvents:[.TouchDown, .TouchDragEnter])
+        btn.addTarget(self, action:#selector(AlertyAlert.buttonRelease(_:)), forControlEvents:[.TouchUpInside, .TouchUpOutside, .TouchCancel, .TouchDragOutside] )
         return btn
     }
     
     private func addButton(title:String)->SCLButton {
         // Update view height
         kWindowHeight += kButtonHeight
+        
         // Add button
         let btn = SCLButton()
         btn.layer.masksToBounds = true
         btn.setTitle(title, forState: .Normal)
-        btn.titleLabel?.font = UIFont(name:kButtonFont, size: 14)
+        btn.titleLabel?.font = AlertyAlert.buttonFont
         contentView.addSubview(btn)
         buttons.append(btn)
         return btn
@@ -405,7 +407,7 @@ public class SCLAlertView: UIViewController {
         keyboardHasBeenShown = false
     }
     
-    //Dismiss keyboard when tapped outside textfield & close SCLAlertView when hideWhenBackgroundViewIsTapped
+    //Dismiss keyboard when tapped outside textfield & close AlertyAlert when hideWhenBackgroundViewIsTapped
     func tapped(gestureRecognizer: UITapGestureRecognizer) {
         self.view.endEditing(true)
         
@@ -416,46 +418,46 @@ public class SCLAlertView: UIViewController {
     }
     
     // showSuccess(view, title, subTitle)
-    public func showSuccess(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.Success.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> SCLAlertViewResponder {
+    public func showSuccess(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=AlertyAlertStyle.Success.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
         return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Success, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage)
     }
     
     // showError(view, title, subTitle)
-    public func showError(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.Error.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> SCLAlertViewResponder {
+    public func showError(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=AlertyAlertStyle.Error.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
         return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Error, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage)
     }
     
     // showNotice(view, title, subTitle)
-    public func showNotice(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.Notice.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> SCLAlertViewResponder {
+    public func showNotice(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=AlertyAlertStyle.Notice.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
         return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Notice, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage)
     }
     
     // showWarning(view, title, subTitle)
-    public func showWarning(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.Warning.defaultColorInt, colorTextButton: UInt=0x000000, circleIconImage: UIImage? = nil) -> SCLAlertViewResponder {
+    public func showWarning(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=AlertyAlertStyle.Warning.defaultColorInt, colorTextButton: UInt=0x000000, circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
         return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Warning, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage)
     }
     
     // showInfo(view, title, subTitle)
-    public func showInfo(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.Info.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> SCLAlertViewResponder {
+    public func showInfo(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=AlertyAlertStyle.Info.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
         return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Info, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage)
     }
     
     // showWait(view, title, subTitle)
-    public func showWait(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt?=SCLAlertViewStyle.Wait.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> SCLAlertViewResponder {
+    public func showWait(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt?=AlertyAlertStyle.Wait.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
         return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Wait, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage)
     }
     
-    public func showEdit(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=SCLAlertViewStyle.Edit.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> SCLAlertViewResponder {
+    public func showEdit(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=AlertyAlertStyle.Edit.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
         return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Edit, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage)
     }
     
     // showTitle(view, title, subTitle, style)
-    public func showTitle(title: String, subTitle: String, style: SCLAlertViewStyle, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt?=0x000000, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> SCLAlertViewResponder {
+    public func showTitle(title: String, subTitle: String, style: AlertyAlertStyle, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt?=0x000000, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
         return showTitle(title, subTitle: subTitle, duration:duration, completeText:closeButtonTitle, style: style, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage)
     }
     
     // showTitle(view, title, subTitle, duration, style)
-    public func showTitle(title: String, subTitle: String, duration: NSTimeInterval?, completeText: String?, style: SCLAlertViewStyle, colorStyle: UInt?=0x000000, colorTextButton: UInt?=0xFFFFFF, circleIconImage: UIImage? = nil) -> SCLAlertViewResponder {
+    public func showTitle(title: String, subTitle: String, duration: NSTimeInterval?, completeText: String?, style: AlertyAlertStyle, colorStyle: UInt?=0x000000, colorTextButton: UInt?=0xFFFFFF, circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
         selfReference = self
         view.alpha = 0
         let rv = UIApplication.sharedApplication().keyWindow! as UIWindow
@@ -472,27 +474,27 @@ public class SCLAlertView: UIViewController {
         switch style {
         case .Success:
             
-            iconImage = checkCircleIconImage(circleIconImage, defaultImage: SCLAlertViewStyleKit.imageOfCheckmark)
+            iconImage = checkCircleIconImage(circleIconImage, defaultImage: AlertyAlertStyleKit.imageOfCheckmark)
             
         case .Error:
             
-            iconImage = checkCircleIconImage(circleIconImage, defaultImage: SCLAlertViewStyleKit.imageOfCross)
+            iconImage = checkCircleIconImage(circleIconImage, defaultImage: AlertyAlertStyleKit.imageOfCross)
             
         case .Notice:
             
-            iconImage = checkCircleIconImage(circleIconImage, defaultImage:SCLAlertViewStyleKit.imageOfNotice)
+            iconImage = checkCircleIconImage(circleIconImage, defaultImage:AlertyAlertStyleKit.imageOfNotice)
             
         case .Warning:
             
-            iconImage = checkCircleIconImage(circleIconImage, defaultImage:SCLAlertViewStyleKit.imageOfWarning)
+            iconImage = checkCircleIconImage(circleIconImage, defaultImage:AlertyAlertStyleKit.imageOfWarning)
             
         case .Info:
             
-            iconImage = checkCircleIconImage(circleIconImage, defaultImage:SCLAlertViewStyleKit.imageOfInfo)
+            iconImage = checkCircleIconImage(circleIconImage, defaultImage:AlertyAlertStyleKit.imageOfInfo)
             
         case .Edit:
             
-            iconImage = checkCircleIconImage(circleIconImage, defaultImage:SCLAlertViewStyleKit.imageOfEdit)
+            iconImage = checkCircleIconImage(circleIconImage, defaultImage:AlertyAlertStyleKit.imageOfEdit)
             
         case .Wait:
             iconImage = nil
@@ -521,7 +523,7 @@ public class SCLAlertView: UIViewController {
         // Done button
         if showCloseButton {
             let txt = completeText != nil ? completeText! : "Done"
-            addButton(txt, target:self, selector:#selector(SCLAlertView.hideView))
+            addButton(txt, target:self, selector:#selector(AlertyAlert.hideView))
         }
         
         //hidden/show circular view based on the ui option
@@ -561,7 +563,7 @@ public class SCLAlertView: UIViewController {
         // Adding duration
         if duration > 0 {
             durationTimer?.invalidate()
-            durationTimer = NSTimer.scheduledTimerWithTimeInterval(duration!, target: self, selector: #selector(SCLAlertView.hideView), userInfo: nil, repeats: false)
+            durationTimer = NSTimer.scheduledTimerWithTimeInterval(duration!, target: self, selector: #selector(AlertyAlert.hideView), userInfo: nil, repeats: false)
         }
         
         // Animate in the alert view
@@ -575,10 +577,10 @@ public class SCLAlertView: UIViewController {
                 })
         })
         // Chainable objects
-        return SCLAlertViewResponder(alertview: self)
+        return AlertyAlertResponder(alertview: self)
     }
     
-    // Close SCLAlertView
+    // Close AlertyAlert
     public func hideView() {
         UIView.animateWithDuration(0.2, animations: {
             self.view.alpha = 0
@@ -589,7 +591,7 @@ public class SCLAlertView: UIViewController {
                     self.dismissBlock!()
                 }
                 
-                // This is necessary for SCLAlertView to be de-initialized, preventing a strong reference cycle with the viewcontroller calling SCLAlertView.
+                // This is necessary for AlertyAlert to be de-initialized, preventing a strong reference cycle with the viewcontroller calling AlertyAlert.
                 for button in self.buttons {
                     button.action = nil
                     button.target = nil
@@ -615,7 +617,7 @@ public class SCLAlertView: UIViewController {
 // Code generated by PaintCode
 // ------------------------------------
 
-class SCLAlertViewStyleKit : NSObject {
+class AlertyAlertStyleKit : NSObject {
     
     // Cache
     struct Cache {
@@ -828,7 +830,7 @@ class SCLAlertViewStyleKit : NSObject {
             return Cache.imageOfCheckmark!
         }
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(80, 80), false, 0)
-        SCLAlertViewStyleKit.drawCheckmark()
+        AlertyAlertStyleKit.drawCheckmark()
         Cache.imageOfCheckmark = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return Cache.imageOfCheckmark!
@@ -839,7 +841,7 @@ class SCLAlertViewStyleKit : NSObject {
             return Cache.imageOfCross!
         }
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(80, 80), false, 0)
-        SCLAlertViewStyleKit.drawCross()
+        AlertyAlertStyleKit.drawCross()
         Cache.imageOfCross = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return Cache.imageOfCross!
@@ -850,7 +852,7 @@ class SCLAlertViewStyleKit : NSObject {
             return Cache.imageOfNotice!
         }
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(80, 80), false, 0)
-        SCLAlertViewStyleKit.drawNotice()
+        AlertyAlertStyleKit.drawNotice()
         Cache.imageOfNotice = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return Cache.imageOfNotice!
@@ -861,7 +863,7 @@ class SCLAlertViewStyleKit : NSObject {
             return Cache.imageOfWarning!
         }
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(80, 80), false, 0)
-        SCLAlertViewStyleKit.drawWarning()
+        AlertyAlertStyleKit.drawWarning()
         Cache.imageOfWarning = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return Cache.imageOfWarning!
@@ -872,7 +874,7 @@ class SCLAlertViewStyleKit : NSObject {
             return Cache.imageOfInfo!
         }
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(80, 80), false, 0)
-        SCLAlertViewStyleKit.drawInfo()
+        AlertyAlertStyleKit.drawInfo()
         Cache.imageOfInfo = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return Cache.imageOfInfo!
@@ -883,7 +885,7 @@ class SCLAlertViewStyleKit : NSObject {
             return Cache.imageOfEdit!
         }
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(80, 80), false, 0)
-        SCLAlertViewStyleKit.drawEdit()
+        AlertyAlertStyleKit.drawEdit()
         Cache.imageOfEdit = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return Cache.imageOfEdit!

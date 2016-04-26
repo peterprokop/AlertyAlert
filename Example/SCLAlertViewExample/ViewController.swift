@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  SCLAlertViewExample
-//
-//  Created by Viktor Radchenko on 6/6/14.
-//  Copyright (c) 2014 Viktor Radchenko. All rights reserved.
-//
-
 import UIKit
 import SCLAlertView
 
@@ -33,33 +25,46 @@ class ViewController: UIViewController {
     }
     
     @IBAction func showSuccess(sender: AnyObject) {
-		let alert = SCLAlertView()
-		alert.addButton("First Button", target:self, selector:#selector(ViewController.firstButton))
-		alert.addButton("Second Button") {
-			print("Second button tapped")
-		}
-        alert.showSuccess(kSuccessTitle, subTitle: kSubtitle)
+        let title = NSLocalizedString("Disable menu preference?", comment: "")
+        let message = NSLocalizedString("Making changes to meal selection will disable your menu preference for this week. Would you like to continue?", comment: "")
+        let closeButtonTitle = NSLocalizedString("Cancel", comment: "")
+        let continueButtonTitle = NSLocalizedString("Continue", comment: "")
+        
+        
+        let alertView = AlertyAlert()
+        alertView.addButton(continueButtonTitle, action: {
+
+        })
+        
+        alertView.showWarning(title, subTitle: message, closeButtonTitle: closeButtonTitle)
+        
+//		let alert = SCLAlertView()
+//		alert.addButton("First Button", target:self, selector:#selector(ViewController.firstButton))
+//		alert.addButton("Second Button") {
+//			print("Second button tapped")
+//		}
+//        alert.showSuccess(kSuccessTitle, subTitle: kSubtitle)
     }
     
     @IBAction func showError(sender: AnyObject) {
-		SCLAlertView().showError("Hold On...", subTitle:"You have not saved your Submission yet. Please save the Submission before accessing the Responses list. Blah de blah de blah, blah. Blah de blah de blah, blah.Blah de blah de blah, blah.Blah de blah de blah, blah.Blah de blah de blah, blah.Blah de blah de blah, blah.", closeButtonTitle:"OK")
+		AlertyAlert().showError("Hold On...", subTitle:"You have not saved your Submission yet. Please save the Submission before accessing the Responses list. Blah de blah de blah, blah. Blah de blah de blah, blah.Blah de blah de blah, blah.Blah de blah de blah, blah.Blah de blah de blah, blah.Blah de blah de blah, blah.", closeButtonTitle:"OK")
 //        SCLAlertView().showError(self, title: kErrorTitle, subTitle: kSubtitle)
     }
     
     @IBAction func showNotice(sender: AnyObject) {
-        SCLAlertView().showNotice(kNoticeTitle, subTitle: kSubtitle)
+        AlertyAlert().showNotice(kNoticeTitle, subTitle: kSubtitle)
     }
     
     @IBAction func showWarning(sender: AnyObject) {
-        SCLAlertView().showWarning(kWarningTitle, subTitle: kSubtitle)
+        AlertyAlert().showWarning(kWarningTitle, subTitle: kSubtitle)
     }
     
     @IBAction func showInfo(sender: AnyObject) {
-        SCLAlertView().showInfo(kInfoTitle, subTitle: kSubtitle)
+        AlertyAlert().showInfo(kInfoTitle, subTitle: kSubtitle)
     }
 
 	@IBAction func showEdit(sender: AnyObject) {
-		let alert = SCLAlertView()
+		let alert = AlertyAlert()
 		let txt = alert.addTextField("Enter your name")
         alert.hideWhenBackgroundViewIsTapped = true
 		alert.addButton("Show Name") {
