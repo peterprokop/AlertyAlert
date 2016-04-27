@@ -104,13 +104,28 @@ public typealias DismissBlock = () -> Void
 public class AlertyAlert: UIViewController {
     
     // Fonts
-    static var titleFont            = UIFont(name: "HelveticaNeue-Bold", size: 18)
-    static var messageFont          = UIFont(name: "HelveticaNeue", size: 14)
-    static var buttonFont           = UIFont(name: "HelveticaNeue", size: 14)
-    static var textFieldFont        = UIFont(name: "HelveticaNeue", size: 14)
+    public static var titleFont            = UIFont(name: "HelveticaNeue-Bold", size: 18)
+    public static var messageFont          = UIFont(name: "HelveticaNeue", size: 14)
+    public static var buttonFont           = UIFont(name: "HelveticaNeue", size: 14)
+    public static var textFieldFont        = UIFont(name: "HelveticaNeue", size: 14)
     
-    static var shouldUseArcForIcon  = false
-    static var shouldShowIconBackground = true
+    public static var shouldUseArcForIcon  = false
+    public static var shouldShowIconBackground = false
+    
+    // UI Options
+    public static var contentViewCornerRadius = CGFloat(5.0)
+    
+    // Buttons
+    public static var buttonHighlightedBackgroundColor: UIColor     = UIColor.whiteColor()
+    public static var buttonHighlightedTextColor: UIColor           = UIColor.grayColor()
+    public static var buttonBackgroundColor: UIColor                = UIColor.whiteColor()
+    public static var buttonTextColor: UIColor                      = UIColor.grayColor()
+    public static var buttonBorderColor: UIColor?                   = nil
+    public static var buttonBorderWidth                             = CGFloat(1/UIScreen.mainScreen().scale)
+    public static var buttonHeight                                  = CGFloat(35.0)
+    public static var buttonVerticalPadding                         = CGFloat(0)
+    public static var buttonHorizontalPadding                       = CGFloat(0)
+    public static var buttonCornerRadius                            = CGFloat(3.0)
     
     let kDefaultShadowOpacity: CGFloat = 0.7
     let kCircleTopPosition: CGFloat = -12.0
@@ -123,7 +138,7 @@ public class AlertyAlert: UIViewController {
     var kWindowHeight: CGFloat = 178.0
     var kTextHeight: CGFloat = 90.0
     let kTextFieldHeight: CGFloat = 45.0
-    let kButtonHeight: CGFloat = 45.0
+    
     
     // UI Colour
     var viewColor = UIColor()
@@ -133,9 +148,8 @@ public class AlertyAlert: UIViewController {
     public var showCloseButton = true
     public var showCircularIcon = true
     public var shouldAutoDismiss = true //Set this false to 'Disable' Auto hideView when SCLButton is tapped
-    public var contentViewCornerRadius : CGFloat = 5.0
     public var fieldCornerRadius : CGFloat = 3.0
-    public var buttonCornerRadius : CGFloat = 3.0
+    
     public var iconTintColor: UIColor?
     
     // Actions
@@ -148,9 +162,9 @@ public class AlertyAlert: UIViewController {
     var contentView = UIView()
     var circleBG = UIView(frame:CGRect(x:0, y:0, width:kCircleHeightBackground, height:kCircleHeightBackground))
     var circleView = UIView()
-    var circleIconView : UIView?
+    var circleIconView: UIView?
     var durationTimer: NSTimer!
-    var dismissBlock : DismissBlock?
+    var dismissBlock: DismissBlock?
     private var inputs = [UITextField]()
     internal var buttons = [SCLButton]()
     private var selfReference: AlertyAlert?
@@ -174,7 +188,7 @@ public class AlertyAlert: UIViewController {
         
         // Content View
         contentView.backgroundColor = UIColor(white:1, alpha:1)
-        contentView.layer.cornerRadius = contentViewCornerRadius
+        contentView.layer.cornerRadius = AlertyAlert.contentViewCornerRadius
         contentView.layer.masksToBounds = true
         contentView.layer.borderWidth = 0.5
         contentView.addSubview(labelTitle)
@@ -233,7 +247,7 @@ public class AlertyAlert: UIViewController {
         var consumedHeight = CGFloat(0)
         consumedHeight += kTitleTop + kTitleHeight
         consumedHeight += 14
-        consumedHeight += kButtonHeight * CGFloat(buttons.count)
+        consumedHeight += (AlertyAlert.buttonHeight + AlertyAlert.buttonVerticalPadding) * CGFloat(buttons.count)
         consumedHeight += kTextFieldHeight * CGFloat(inputs.count)
         let maxViewTextHeight = maxHeight - consumedHeight
         let viewTextWidth = kWindowWidth - 24
@@ -257,7 +271,7 @@ public class AlertyAlert: UIViewController {
         if AlertyAlert.shouldUseArcForIcon {
             y = (sz.height - windowHeight - (kCircleHeight / 8)) / 2
             contentView.frame = CGRect(x:x, y:y, width:kWindowWidth, height:windowHeight)
-            contentView.layer.cornerRadius = contentViewCornerRadius
+            contentView.layer.cornerRadius = AlertyAlert.contentViewCornerRadius
             y -= kCircleHeightBackground * 0.6
             x = (sz.width - kCircleHeightBackground) / 2
             circleBG.frame = CGRect(x:x, y:y+6, width:kCircleHeightBackground, height:kCircleHeightBackground)
@@ -268,7 +282,7 @@ public class AlertyAlert: UIViewController {
         } else {
             y = (sz.height - windowHeight + (kCircleHeight )) / 2
             contentView.frame = CGRect(x:x, y:y - kCircleHeight, width:kWindowWidth, height:windowHeight + kCircleHeight)
-            contentView.layer.cornerRadius = contentViewCornerRadius
+            contentView.layer.cornerRadius = AlertyAlert.contentViewCornerRadius
             y -= kCircleHeightBackground * 0.6
             x = (sz.width - kCircleHeightBackground) / 2
             circleBG.frame = CGRect(x:x, y:y+6, width:kCircleHeightBackground, height:kCircleHeightBackground)
@@ -292,9 +306,9 @@ public class AlertyAlert: UIViewController {
         
         // Buttons
         for btn in buttons {
-            btn.frame = CGRect(x:12, y:y, width:kWindowWidth - 24, height:35)
-            btn.layer.cornerRadius = buttonCornerRadius
-            y += kButtonHeight
+            btn.frame = CGRect(x: AlertyAlert.buttonHorizontalPadding, y:y, width:kWindowWidth - 2 * AlertyAlert.buttonHorizontalPadding, height:AlertyAlert.buttonHeight)
+            btn.layer.cornerRadius = AlertyAlert.buttonCornerRadius
+            y += (AlertyAlert.buttonHeight + AlertyAlert.buttonVerticalPadding)
         }
     }
     
@@ -319,6 +333,7 @@ public class AlertyAlert: UIViewController {
     public func addTextField(title:String?=nil)->UITextField {
         // Update view height
         kWindowHeight += kTextFieldHeight
+        
         // Add text field
         let txt = UITextField()
         txt.borderStyle = UITextBorderStyle.RoundedRect
@@ -335,7 +350,7 @@ public class AlertyAlert: UIViewController {
         return txt
     }
     
-    public func addButton(title:String, action:()->Void)->SCLButton {
+    public func addButton(title:String, action:()->Void) -> SCLButton {
         let btn = addButton(title)
         btn.actionType = SCLActionType.Closure
         btn.action = action
@@ -345,7 +360,7 @@ public class AlertyAlert: UIViewController {
         return btn
     }
     
-    public func addButton(title:String, target:AnyObject, selector:Selector)->SCLButton {
+    public func addButton(title:String, target:AnyObject, selector:Selector) -> SCLButton {
         let btn = addButton(title)
         btn.actionType = SCLActionType.Selector
         btn.target = target
@@ -356,9 +371,9 @@ public class AlertyAlert: UIViewController {
         return btn
     }
     
-    private func addButton(title:String)->SCLButton {
+    private func addButton(title:String) -> SCLButton {
         // Update view height
-        kWindowHeight += kButtonHeight
+        kWindowHeight += (AlertyAlert.buttonHeight + AlertyAlert.buttonVerticalPadding)
         
         // Add button
         let btn = SCLButton()
@@ -367,10 +382,16 @@ public class AlertyAlert: UIViewController {
         btn.titleLabel?.font = AlertyAlert.buttonFont
         contentView.addSubview(btn)
         buttons.append(btn)
+        
+        if let buttonBorderColor = AlertyAlert.buttonBorderColor {
+            btn.layer.borderColor = buttonBorderColor.CGColor
+        }
+        btn.layer.borderWidth = AlertyAlert.buttonBorderWidth
+        
         return btn
     }
     
-    func buttonTapped(btn:SCLButton) {
+    func buttonTapped(btn: SCLButton) {
         if btn.actionType == SCLActionType.Closure {
             btn.action()
         } else if btn.actionType == SCLActionType.Selector {
@@ -384,18 +405,12 @@ public class AlertyAlert: UIViewController {
     }
     
     
-    func buttonTapDown(btn:SCLButton) {
-        var hue : CGFloat = 0
-        var saturation : CGFloat = 0
-        var brightness : CGFloat = 0
-        var alpha : CGFloat = 0
-        btn.backgroundColor?.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-        //brightness = brightness * CGFloat(pressBrightness)
-        btn.backgroundColor = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
+    func buttonTapDown(btn: SCLButton) {
+        btn.backgroundColor = AlertyAlert.buttonHighlightedBackgroundColor
     }
     
-    func buttonRelease(btn:SCLButton) {
-        btn.backgroundColor = viewColor
+    func buttonRelease(btn: SCLButton) {
+        btn.backgroundColor = AlertyAlert.buttonBackgroundColor
     }
     
     var tmpContentViewFrameOrigin: CGPoint?
@@ -442,46 +457,46 @@ public class AlertyAlert: UIViewController {
     }
     
     // showSuccess(view, title, subTitle)
-    public func showSuccess(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=AlertyAlertStyle.Success.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
-        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Success, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage)
+    public func showSuccess(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=AlertyAlertStyle.Success.defaultColorInt,  circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
+        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Success, colorStyle: colorStyle, circleIconImage: circleIconImage)
     }
     
     // showError(view, title, subTitle)
-    public func showError(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=AlertyAlertStyle.Error.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
-        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Error, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage)
+    public func showError(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=AlertyAlertStyle.Error.defaultColorInt,  circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
+        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Error, colorStyle: colorStyle, circleIconImage: circleIconImage)
     }
     
     // showNotice(view, title, subTitle)
-    public func showNotice(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=AlertyAlertStyle.Notice.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
-        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Notice, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage)
+    public func showNotice(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=AlertyAlertStyle.Notice.defaultColorInt,  circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
+        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Notice, colorStyle: colorStyle, circleIconImage: circleIconImage)
     }
     
     // showWarning(view, title, subTitle)
     public func showWarning(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=AlertyAlertStyle.Warning.defaultColorInt, colorTextButton: UInt=0x000000, circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
-        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Warning, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage)
+        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Warning, colorStyle: colorStyle, circleIconImage: circleIconImage)
     }
     
     // showInfo(view, title, subTitle)
-    public func showInfo(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=AlertyAlertStyle.Info.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
-        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Info, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage)
+    public func showInfo(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=AlertyAlertStyle.Info.defaultColorInt,  circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
+        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Info, colorStyle: colorStyle, circleIconImage: circleIconImage)
     }
     
     // showWait(view, title, subTitle)
-    public func showWait(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt?=AlertyAlertStyle.Wait.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
-        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Wait, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage)
+    public func showWait(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt?=AlertyAlertStyle.Wait.defaultColorInt,  circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
+        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Wait, colorStyle: colorStyle, circleIconImage: circleIconImage)
     }
     
-    public func showEdit(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=AlertyAlertStyle.Edit.defaultColorInt, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
-        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Edit, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage)
+    public func showEdit(title: String, subTitle: String, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt=AlertyAlertStyle.Edit.defaultColorInt,  circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
+        return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .Edit, colorStyle: colorStyle, circleIconImage: circleIconImage)
     }
     
     // showTitle(view, title, subTitle, style)
-    public func showTitle(title: String, subTitle: String, style: AlertyAlertStyle, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt?=0x000000, colorTextButton: UInt=0xFFFFFF, circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
-        return showTitle(title, subTitle: subTitle, duration:duration, completeText:closeButtonTitle, style: style, colorStyle: colorStyle, colorTextButton: colorTextButton, circleIconImage: circleIconImage)
+    public func showTitle(title: String, subTitle: String, style: AlertyAlertStyle, closeButtonTitle:String?=nil, duration:NSTimeInterval=0.0, colorStyle: UInt?=0x000000,  circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
+        return showTitle(title, subTitle: subTitle, duration:duration, completeText:closeButtonTitle, style: style, colorStyle: colorStyle, circleIconImage: circleIconImage)
     }
     
     // showTitle(view, title, subTitle, duration, style)
-    public func showTitle(title: String, subTitle: String, duration: NSTimeInterval?, completeText: String?, style: AlertyAlertStyle, colorStyle: UInt?=0x000000, colorTextButton: UInt?=0xFFFFFF, circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
+    public func showTitle(title: String, subTitle: String, duration: NSTimeInterval?, completeText: String?, style: AlertyAlertStyle, colorStyle: UInt?=0x000000, circleIconImage: UIImage? = nil) -> AlertyAlertResponder {
         selfReference = self
         view.alpha = 0
         let rv = UIApplication.sharedApplication().keyWindow! as UIWindow
@@ -579,9 +594,9 @@ public class AlertyAlert: UIViewController {
             txt.layer.borderColor = viewColor.CGColor
         }
         for btn in buttons {
-            btn.backgroundColor = viewColor
-            let color = Int(colorTextButton ?? 0xFFFFFF)
-            btn.setTitleColor(UIColor.fromHex(color), forState:UIControlState.Normal)
+            btn.backgroundColor = AlertyAlert.buttonBackgroundColor
+            btn.setTitleColor(AlertyAlert.buttonTextColor, forState: .Normal)
+            btn.setTitleColor(AlertyAlert.buttonHighlightedTextColor, forState: .Highlighted)
         }
         
         // Adding duration
