@@ -1,5 +1,5 @@
 import UIKit
-import SCLAlertView
+import AlertyAlert
 
 
 let kSuccessTitle = "Congratulations"

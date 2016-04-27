@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D5113B01CD0E7C6007085E4 /* AlertyAlert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D5113AF1CD0E7C6007085E4 /* AlertyAlert.framework */; };
 		253330571A428E0700E8CD8E /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 253330561A428E0700E8CD8E /* Launch Screen.xib */; };
 		CEABB2471942AD9700FCB13C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABB2461942AD9700FCB13C /* AppDelegate.swift */; };
 		CEABB2501942AD9700FCB13C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEABB24F1942AD9700FCB13C /* Images.xcassets */; };
@@ -38,6 +39,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0D5113AF1CD0E7C6007085E4 /* AlertyAlert.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlertyAlert.framework; path = "../build/Debug-iphoneos/AlertyAlert.framework"; sourceTree = "<group>"; };
 		253330561A428E0700E8CD8E /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		CEABB2411942AD9700FCB13C /* AlertyAlertExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlertyAlertExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEABB2451942AD9700FCB13C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D5113B01CD0E7C6007085E4 /* AlertyAlert.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +72,7 @@
 		CEABB2381942AD9700FCB13C = {
 			isa = PBXGroup;
 			children = (
+				0D5113AF1CD0E7C6007085E4 /* AlertyAlert.framework */,
 				CEABB2431942AD9700FCB13C /* SCLAlertViewExample */,
 				CEABB2421942AD9700FCB13C /* Products */,
 			);

@@ -52,9 +52,9 @@ public enum SCLActionType {
 // Button sub-class
 public class SCLButton: UIButton {
     var actionType = SCLActionType.None
-    var target:AnyObject!
-    var selector:Selector!
-    var action:(()->Void)!
+    var target: AnyObject!
+    var selector: Selector!
+    var action: (()->Void)!
     
     public init() {
         super.init(frame: CGRectZero)
@@ -104,10 +104,13 @@ public typealias DismissBlock = () -> Void
 public class AlertyAlert: UIViewController {
     
     // Fonts
-    static var titleFont        = UIFont(name: "HelveticaNeue-Bold", size: 18)
-    static var messageFont      = UIFont(name: "HelveticaNeue", size: 14)
-    static var buttonFont       = UIFont(name: "HelveticaNeue", size: 14)
-    static var textFieldFont    = UIFont(name: "HelveticaNeue", size: 14)
+    static var titleFont            = UIFont(name: "HelveticaNeue-Bold", size: 18)
+    static var messageFont          = UIFont(name: "HelveticaNeue", size: 14)
+    static var buttonFont           = UIFont(name: "HelveticaNeue", size: 14)
+    static var textFieldFont        = UIFont(name: "HelveticaNeue", size: 14)
+    
+    static var shouldUseArcForIcon  = false
+    static var shouldShowIconBackground = true
     
     let kDefaultShadowOpacity: CGFloat = 0.7
     let kCircleTopPosition: CGFloat = -12.0
@@ -238,7 +241,7 @@ public class AlertyAlert: UIViewController {
         let viewTextHeight = min(suggestedViewTextSize.height, maxViewTextHeight)
         
         // scroll management
-        if (suggestedViewTextSize.height > maxViewTextHeight) {
+        if suggestedViewTextSize.height > maxViewTextHeight {
             viewText.scrollEnabled = true
         } else {
             viewText.scrollEnabled = false
@@ -248,19 +251,34 @@ public class AlertyAlert: UIViewController {
         
         // Set frames
         var x = (sz.width - kWindowWidth) / 2
-        var y = (sz.height - windowHeight - (kCircleHeight / 8)) / 2
-        contentView.frame = CGRect(x:x, y:y, width:kWindowWidth, height:windowHeight)
-        contentView.layer.cornerRadius = contentViewCornerRadius
-        y -= kCircleHeightBackground * 0.6
-        x = (sz.width - kCircleHeightBackground) / 2
-        circleBG.frame = CGRect(x:x, y:y+6, width:kCircleHeightBackground, height:kCircleHeightBackground)
+        var y = CGFloat(0)
+        var titleOffset : CGFloat
         
-        //adjust Title frame based on circularIcon show/hide flag
-        let titleOffset : CGFloat = showCircularIcon ? 0.0 : -12.0
-        labelTitle.frame = labelTitle.frame.offsetBy(dx: 0, dy: titleOffset)
+        if AlertyAlert.shouldUseArcForIcon {
+            y = (sz.height - windowHeight - (kCircleHeight / 8)) / 2
+            contentView.frame = CGRect(x:x, y:y, width:kWindowWidth, height:windowHeight)
+            contentView.layer.cornerRadius = contentViewCornerRadius
+            y -= kCircleHeightBackground * 0.6
+            x = (sz.width - kCircleHeightBackground) / 2
+            circleBG.frame = CGRect(x:x, y:y+6, width:kCircleHeightBackground, height:kCircleHeightBackground)
+            
+            //adjust Title frame based on circularIcon show/hide flag
+            titleOffset = showCircularIcon ? 0.0 : -12.0
+            labelTitle.frame = labelTitle.frame.offsetBy(dx: 0, dy: titleOffset)
+        } else {
+            y = (sz.height - windowHeight + (kCircleHeight )) / 2
+            contentView.frame = CGRect(x:x, y:y - kCircleHeight, width:kWindowWidth, height:windowHeight + kCircleHeight)
+            contentView.layer.cornerRadius = contentViewCornerRadius
+            y -= kCircleHeightBackground * 0.6
+            x = (sz.width - kCircleHeightBackground) / 2
+            circleBG.frame = CGRect(x:x, y:y+6, width:kCircleHeightBackground, height:kCircleHeightBackground)
+                
+            titleOffset = kCircleHeight/2
+            labelTitle.frame = labelTitle.frame.offsetBy(dx: 0, dy: titleOffset)
+        }
         
         // Subtitle
-        y = kTitleTop + kTitleHeight + titleOffset
+        y = labelTitle.frame.maxY //kTitleTop + kTitleHeight + titleOffset
         viewText.frame = CGRect(x:12, y:y, width: kWindowWidth - 24, height:kTextHeight)
         viewText.frame = CGRect(x:12, y:y, width: viewTextWidth, height:viewTextHeight)
         
@@ -537,7 +555,7 @@ public class AlertyAlert: UIViewController {
         circleBG.hidden = !showCircularIcon
         
         // Alert view colour and images
-        circleView.backgroundColor = viewColor
+        circleView.backgroundColor = AlertyAlert.shouldShowIconBackground ? viewColor : UIColor.clearColor()
         // Spinner / icon
         if style == .Wait {
             let indicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
