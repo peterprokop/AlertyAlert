@@ -123,15 +123,17 @@ public class AlertyAlert: UIViewController {
     public static var buttonBorderColor: UIColor?                   = nil
     public static var buttonBorderWidth                             = CGFloat(1/UIScreen.mainScreen().scale)
     public static var buttonHeight                                  = CGFloat(35.0)
-    public static var buttonVerticalPadding                         = CGFloat(0)
-    public static var buttonHorizontalPadding                       = CGFloat(0)
+    public static var buttonVerticalPadding                         = CGFloat(10)
+    public static var buttonHorizontalPadding                       = CGFloat(10))
     public static var buttonCornerRadius                            = CGFloat(3.0)
+    
+    public static var iconSize                                      = CGFloat(20.0)
     
     let kDefaultShadowOpacity: CGFloat = 0.7
     let kCircleTopPosition: CGFloat = -12.0
     let kCircleBackgroundTopPosition: CGFloat = -15.0
     let kCircleHeight: CGFloat = 56.0
-    let kCircleIconHeight: CGFloat = 20.0
+    
     let kTitleTop:CGFloat = 30.0
     let kTitleHeight:CGFloat = 40.0
     let kWindowWidth: CGFloat = 240.0
@@ -587,8 +589,8 @@ public class AlertyAlert: UIViewController {
             }
         }
         circleView.addSubview(circleIconView!)
-        let x = (kCircleHeight - kCircleIconHeight) / 2
-        circleIconView!.frame = CGRectMake( x, x, kCircleIconHeight, kCircleIconHeight)
+        let x = (kCircleHeight - AlertyAlert.iconSize) / 2
+        circleIconView!.frame = CGRectMake( x, x, AlertyAlert.iconSize, AlertyAlert.iconSize)
         
         for txt in inputs {
             txt.layer.borderColor = viewColor.CGColor
