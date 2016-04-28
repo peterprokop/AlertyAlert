@@ -124,7 +124,7 @@ public class AlertyAlert: UIViewController {
     public static var buttonBorderWidth                             = CGFloat(1/UIScreen.mainScreen().scale)
     public static var buttonHeight                                  = CGFloat(35.0)
     public static var buttonVerticalPadding                         = CGFloat(10)
-    public static var buttonHorizontalPadding                       = CGFloat(10))
+    public static var buttonHorizontalPadding                       = CGFloat(10)
     public static var buttonCornerRadius                            = CGFloat(3.0)
     
     public static var iconSize                                      = CGFloat(20.0)
