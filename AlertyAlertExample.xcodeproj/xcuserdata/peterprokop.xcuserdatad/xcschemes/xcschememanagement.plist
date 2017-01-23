@@ -4,7 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AlertyAlertExample.xcscheme</key>
+		<key>AlertyAlert.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>AlertyAlertExample.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -23,6 +28,16 @@
 			<true/>
 		</dict>
 		<key>0D3B196B1E3617D60018DCA3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0D3B19821E3619B40018DCA3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0D3B198A1E3619B40018DCA3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

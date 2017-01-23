@@ -15,6 +15,11 @@
 		0D3B195B1E3617D60018DCA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D3B19591E3617D60018DCA3 /* LaunchScreen.storyboard */; };
 		0D3B19661E3617D60018DCA3 /* AlertyAlertExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B19651E3617D60018DCA3 /* AlertyAlertExampleTests.swift */; };
 		0D3B19711E3617D60018DCA3 /* AlertyAlertExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B19701E3617D60018DCA3 /* AlertyAlertExampleUITests.swift */; };
+		0D3B198C1E3619B40018DCA3 /* AlertyAlert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D3B19831E3619B40018DCA3 /* AlertyAlert.framework */; };
+		0D3B19931E3619B40018DCA3 /* AlertyAlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B19921E3619B40018DCA3 /* AlertyAlertTests.swift */; };
+		0D3B19951E3619B40018DCA3 /* AlertyAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D3B19851E3619B40018DCA3 /* AlertyAlert.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0D3B19981E3619B40018DCA3 /* AlertyAlert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D3B19831E3619B40018DCA3 /* AlertyAlert.framework */; };
+		0D3B19991E3619B40018DCA3 /* AlertyAlert.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0D3B19831E3619B40018DCA3 /* AlertyAlert.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +37,42 @@
 			remoteGlobalIDString = 0D3B194A1E3617D60018DCA3;
 			remoteInfo = AlertyAlertExample;
 		};
+		0D3B198D1E3619B40018DCA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D3B19431E3617D60018DCA3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D3B19821E3619B40018DCA3;
+			remoteInfo = AlertyAlert;
+		};
+		0D3B198F1E3619B40018DCA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D3B19431E3617D60018DCA3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D3B194A1E3617D60018DCA3;
+			remoteInfo = AlertyAlertExample;
+		};
+		0D3B19961E3619B40018DCA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D3B19431E3617D60018DCA3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D3B19821E3619B40018DCA3;
+			remoteInfo = AlertyAlert;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0D3B199D1E3619B40018DCA3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0D3B19991E3619B40018DCA3 /* AlertyAlert.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0D3B194B1E3617D60018DCA3 /* AlertyAlertExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlertyAlertExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +89,12 @@
 		0D3B196C1E3617D60018DCA3 /* AlertyAlertExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlertyAlertExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D3B19701E3617D60018DCA3 /* AlertyAlertExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertyAlertExampleUITests.swift; sourceTree = "<group>"; };
 		0D3B19721E3617D60018DCA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D3B19831E3619B40018DCA3 /* AlertyAlert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlertyAlert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D3B19851E3619B40018DCA3 /* AlertyAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertyAlert.h; sourceTree = "<group>"; };
+		0D3B19861E3619B40018DCA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D3B198B1E3619B40018DCA3 /* AlertyAlertTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlertyAlertTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D3B19921E3619B40018DCA3 /* AlertyAlertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertyAlertTests.swift; sourceTree = "<group>"; };
+		0D3B19941E3619B40018DCA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D3B19981E3619B40018DCA3 /* AlertyAlert.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +120,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0D3B197F1E3619B40018DCA3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D3B19881E3619B40018DCA3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D3B198C1E3619B40018DCA3 /* AlertyAlert.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -82,6 +144,8 @@
 				0D3B194D1E3617D60018DCA3 /* AlertyAlertExample */,
 				0D3B19641E3617D60018DCA3 /* AlertyAlertExampleTests */,
 				0D3B196F1E3617D60018DCA3 /* AlertyAlertExampleUITests */,
+				0D3B19841E3619B40018DCA3 /* AlertyAlert */,
+				0D3B19911E3619B40018DCA3 /* AlertyAlertTests */,
 				0D3B194C1E3617D60018DCA3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,6 +156,8 @@
 				0D3B194B1E3617D60018DCA3 /* AlertyAlertExample.app */,
 				0D3B19611E3617D60018DCA3 /* AlertyAlertExampleTests.xctest */,
 				0D3B196C1E3617D60018DCA3 /* AlertyAlertExampleUITests.xctest */,
+				0D3B19831E3619B40018DCA3 /* AlertyAlert.framework */,
+				0D3B198B1E3619B40018DCA3 /* AlertyAlertTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,7 +194,36 @@
 			path = AlertyAlertExampleUITests;
 			sourceTree = "<group>";
 		};
+		0D3B19841E3619B40018DCA3 /* AlertyAlert */ = {
+			isa = PBXGroup;
+			children = (
+				0D3B19851E3619B40018DCA3 /* AlertyAlert.h */,
+				0D3B19861E3619B40018DCA3 /* Info.plist */,
+			);
+			path = AlertyAlert;
+			sourceTree = "<group>";
+		};
+		0D3B19911E3619B40018DCA3 /* AlertyAlertTests */ = {
+			isa = PBXGroup;
+			children = (
+				0D3B19921E3619B40018DCA3 /* AlertyAlertTests.swift */,
+				0D3B19941E3619B40018DCA3 /* Info.plist */,
+			);
+			path = AlertyAlertTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0D3B19801E3619B40018DCA3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D3B19951E3619B40018DCA3 /* AlertyAlert.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		0D3B194A1E3617D60018DCA3 /* AlertyAlertExample */ = {
@@ -138,10 +233,12 @@
 				0D3B19471E3617D60018DCA3 /* Sources */,
 				0D3B19481E3617D60018DCA3 /* Frameworks */,
 				0D3B19491E3617D60018DCA3 /* Resources */,
+				0D3B199D1E3619B40018DCA3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0D3B19971E3619B40018DCA3 /* PBXTargetDependency */,
 			);
 			name = AlertyAlertExample;
 			productName = AlertyAlertExample;
@@ -184,6 +281,43 @@
 			productReference = 0D3B196C1E3617D60018DCA3 /* AlertyAlertExampleUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		0D3B19821E3619B40018DCA3 /* AlertyAlert */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D3B199A1E3619B40018DCA3 /* Build configuration list for PBXNativeTarget "AlertyAlert" */;
+			buildPhases = (
+				0D3B197E1E3619B40018DCA3 /* Sources */,
+				0D3B197F1E3619B40018DCA3 /* Frameworks */,
+				0D3B19801E3619B40018DCA3 /* Headers */,
+				0D3B19811E3619B40018DCA3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AlertyAlert;
+			productName = AlertyAlert;
+			productReference = 0D3B19831E3619B40018DCA3 /* AlertyAlert.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		0D3B198A1E3619B40018DCA3 /* AlertyAlertTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D3B199E1E3619B40018DCA3 /* Build configuration list for PBXNativeTarget "AlertyAlertTests" */;
+			buildPhases = (
+				0D3B19871E3619B40018DCA3 /* Sources */,
+				0D3B19881E3619B40018DCA3 /* Frameworks */,
+				0D3B19891E3619B40018DCA3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0D3B198E1E3619B40018DCA3 /* PBXTargetDependency */,
+				0D3B19901E3619B40018DCA3 /* PBXTargetDependency */,
+			);
+			name = AlertyAlertTests;
+			productName = AlertyAlertTests;
+			productReference = 0D3B198B1E3619B40018DCA3 /* AlertyAlertTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -208,6 +342,15 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 0D3B194A1E3617D60018DCA3;
 					};
+					0D3B19821E3619B40018DCA3 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					0D3B198A1E3619B40018DCA3 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 0D3B194A1E3617D60018DCA3;
+					};
 				};
 			};
 			buildConfigurationList = 0D3B19461E3617D60018DCA3 /* Build configuration list for PBXProject "AlertyAlertExample" */;
@@ -226,6 +369,8 @@
 				0D3B194A1E3617D60018DCA3 /* AlertyAlertExample */,
 				0D3B19601E3617D60018DCA3 /* AlertyAlertExampleTests */,
 				0D3B196B1E3617D60018DCA3 /* AlertyAlertExampleUITests */,
+				0D3B19821E3619B40018DCA3 /* AlertyAlert */,
+				0D3B198A1E3619B40018DCA3 /* AlertyAlertTests */,
 			);
 		};
 /* End PBXProject section */
@@ -249,6 +394,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0D3B196A1E3617D60018DCA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D3B19811E3619B40018DCA3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D3B19891E3619B40018DCA3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -284,6 +443,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0D3B197E1E3619B40018DCA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D3B19871E3619B40018DCA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D3B19931E3619B40018DCA3 /* AlertyAlertTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -296,6 +470,21 @@
 			isa = PBXTargetDependency;
 			target = 0D3B194A1E3617D60018DCA3 /* AlertyAlertExample */;
 			targetProxy = 0D3B196D1E3617D60018DCA3 /* PBXContainerItemProxy */;
+		};
+		0D3B198E1E3619B40018DCA3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0D3B19821E3619B40018DCA3 /* AlertyAlert */;
+			targetProxy = 0D3B198D1E3619B40018DCA3 /* PBXContainerItemProxy */;
+		};
+		0D3B19901E3619B40018DCA3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0D3B194A1E3617D60018DCA3 /* AlertyAlertExample */;
+			targetProxy = 0D3B198F1E3619B40018DCA3 /* PBXContainerItemProxy */;
+		};
+		0D3B19971E3619B40018DCA3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0D3B19821E3619B40018DCA3 /* AlertyAlert */;
+			targetProxy = 0D3B19961E3619B40018DCA3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -488,6 +677,76 @@
 			};
 			name = Release;
 		};
+		0D3B199B1E3619B40018DCA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = AlertyAlert/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Prokop.AlertyAlert;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0D3B199C1E3619B40018DCA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = AlertyAlert/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Prokop.AlertyAlert;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		0D3B199F1E3619B40018DCA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = AlertyAlertTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Prokop.AlertyAlertTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AlertyAlertExample.app/AlertyAlertExample";
+			};
+			name = Debug;
+		};
+		0D3B19A01E3619B40018DCA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = AlertyAlertTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Prokop.AlertyAlertTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AlertyAlertExample.app/AlertyAlertExample";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -521,6 +780,22 @@
 			buildConfigurations = (
 				0D3B197C1E3617D60018DCA3 /* Debug */,
 				0D3B197D1E3617D60018DCA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0D3B199A1E3619B40018DCA3 /* Build configuration list for PBXNativeTarget "AlertyAlert" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D3B199B1E3619B40018DCA3 /* Debug */,
+				0D3B199C1E3619B40018DCA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0D3B199E1E3619B40018DCA3 /* Build configuration list for PBXNativeTarget "AlertyAlertTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D3B199F1E3619B40018DCA3 /* Debug */,
+				0D3B19A01E3619B40018DCA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
