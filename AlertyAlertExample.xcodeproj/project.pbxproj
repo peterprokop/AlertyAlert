@@ -20,6 +20,9 @@
 		0D3B19951E3619B40018DCA3 /* AlertyAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D3B19851E3619B40018DCA3 /* AlertyAlert.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0D3B19981E3619B40018DCA3 /* AlertyAlert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D3B19831E3619B40018DCA3 /* AlertyAlert.framework */; };
 		0D3B19991E3619B40018DCA3 /* AlertyAlert.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0D3B19831E3619B40018DCA3 /* AlertyAlert.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0D3B19A21E361C250018DCA3 /* AlertyAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B19A11E361C250018DCA3 /* AlertyAlertController.swift */; };
+		0D3B19A41E361C770018DCA3 /* AlertyAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D3B19A31E361C770018DCA3 /* AlertyAlert.storyboard */; };
+		0DA69FDD1E3620C300AA6D51 /* Alerty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA69FDC1E3620C300AA6D51 /* Alerty.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +98,9 @@
 		0D3B198B1E3619B40018DCA3 /* AlertyAlertTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlertyAlertTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D3B19921E3619B40018DCA3 /* AlertyAlertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertyAlertTests.swift; sourceTree = "<group>"; };
 		0D3B19941E3619B40018DCA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D3B19A11E361C250018DCA3 /* AlertyAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertyAlertController.swift; sourceTree = "<group>"; };
+		0D3B19A31E361C770018DCA3 /* AlertyAlert.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AlertyAlert.storyboard; sourceTree = "<group>"; };
+		0DA69FDC1E3620C300AA6D51 /* Alerty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerty.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,8 +203,11 @@
 		0D3B19841E3619B40018DCA3 /* AlertyAlert */ = {
 			isa = PBXGroup;
 			children = (
+				0D3B19A11E361C250018DCA3 /* AlertyAlertController.swift */,
 				0D3B19851E3619B40018DCA3 /* AlertyAlert.h */,
 				0D3B19861E3619B40018DCA3 /* Info.plist */,
+				0D3B19A31E361C770018DCA3 /* AlertyAlert.storyboard */,
+				0DA69FDC1E3620C300AA6D51 /* Alerty.swift */,
 			);
 			path = AlertyAlert;
 			sourceTree = "<group>";
@@ -344,6 +353,7 @@
 					};
 					0D3B19821E3619B40018DCA3 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					0D3B198A1E3619B40018DCA3 = {
@@ -404,6 +414,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D3B19A41E361C770018DCA3 /* AlertyAlert.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +458,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DA69FDD1E3620C300AA6D51 /* Alerty.swift in Sources */,
+				0D3B19A21E361C250018DCA3 /* AlertyAlertController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,6 +615,7 @@
 		0D3B19761E3617D60018DCA3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AlertyAlertExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -614,6 +628,7 @@
 		0D3B19771E3617D60018DCA3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AlertyAlertExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -680,6 +695,7 @@
 		0D3B199B1E3619B40018DCA3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -692,6 +708,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Prokop.AlertyAlert;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -702,6 +719,7 @@
 		0D3B199C1E3619B40018DCA3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -766,6 +784,7 @@
 				0D3B19771E3617D60018DCA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0D3B19781E3617D60018DCA3 /* Build configuration list for PBXNativeTarget "AlertyAlertExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -774,6 +793,7 @@
 				0D3B197A1E3617D60018DCA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0D3B197B1E3617D60018DCA3 /* Build configuration list for PBXNativeTarget "AlertyAlertExampleUITests" */ = {
 			isa = XCConfigurationList;
@@ -782,6 +802,7 @@
 				0D3B197D1E3617D60018DCA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0D3B199A1E3619B40018DCA3 /* Build configuration list for PBXNativeTarget "AlertyAlert" */ = {
 			isa = XCConfigurationList;
@@ -790,6 +811,7 @@
 				0D3B199C1E3619B40018DCA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0D3B199E1E3619B40018DCA3 /* Build configuration list for PBXNativeTarget "AlertyAlertTests" */ = {
 			isa = XCConfigurationList;
@@ -798,6 +820,7 @@
 				0D3B19A01E3619B40018DCA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
