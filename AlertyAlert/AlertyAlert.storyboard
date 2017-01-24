@@ -23,10 +23,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSf-HH-lgb">
-                                <rect key="frame" x="56" y="275.5" width="263" height="116"/>
+                                <rect key="frame" x="56" y="259" width="263" height="149"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UmS-cd-4tl">
-                                        <rect key="frame" x="12" y="12" width="239" height="54"/>
+                                        <rect key="frame" x="12" y="45" width="239" height="54"/>
                                         <string key="text">Some sample text
 Spanning
 Several lines</string>
@@ -41,24 +41,28 @@ Several lines</string>
                                         </variation>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFw-Su-QX6">
-                                        <rect key="frame" x="0.0" y="66" width="263" height="50"/>
+                                        <rect key="frame" x="0.0" y="99" width="263" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="PjY-tk-2Rv"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="OK"/>
                                         <connections>
-                                            <action selector="okTap" destination="DVE-qc-aKf" eventType="touchUpInside" id="uF9-R3-Brc"/>
+                                            <action selector="buttonTappedWithSender:" destination="DVE-qc-aKf" eventType="touchUpInside" id="rBa-ps-oU7"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bw4-LL-FUd">
+                                        <rect key="frame" x="12" y="12" width="239" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="UmS-cd-4tl" firstAttribute="top" secondItem="bSf-HH-lgb" secondAttribute="top" constant="12" id="1Pq-oG-WS2">
-                                        <variation key="widthClass=compact" constant="12"/>
-                                        <variation key="widthClass=regular" constant="20"/>
-                                    </constraint>
                                     <constraint firstItem="WFw-Su-QX6" firstAttribute="leading" secondItem="bSf-HH-lgb" secondAttribute="leading" id="2Ea-3I-khY"/>
+                                    <constraint firstItem="Bw4-LL-FUd" firstAttribute="leading" secondItem="bSf-HH-lgb" secondAttribute="leading" constant="12" id="380-cm-tdC"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bw4-LL-FUd" secondAttribute="trailing" constant="12" id="KFj-q1-yj4"/>
                                     <constraint firstItem="WFw-Su-QX6" firstAttribute="top" secondItem="UmS-cd-4tl" secondAttribute="bottom" id="Mqt-Sq-wAt"/>
                                     <constraint firstAttribute="bottom" secondItem="WFw-Su-QX6" secondAttribute="bottom" id="Uw9-DR-QaJ"/>
                                     <constraint firstItem="UmS-cd-4tl" firstAttribute="leading" secondItem="bSf-HH-lgb" secondAttribute="leading" constant="12" id="eH7-Ua-1Nd">
@@ -67,6 +71,8 @@ Several lines</string>
                                     </constraint>
                                     <constraint firstAttribute="trailing" secondItem="WFw-Su-QX6" secondAttribute="trailing" id="mgU-xi-ty8"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="oWt-6M-vXJ"/>
+                                    <constraint firstItem="Bw4-LL-FUd" firstAttribute="top" secondItem="bSf-HH-lgb" secondAttribute="top" constant="12" id="qHQ-Xv-Ppe"/>
+                                    <constraint firstItem="UmS-cd-4tl" firstAttribute="top" secondItem="Bw4-LL-FUd" secondAttribute="bottom" constant="12" id="rB6-sb-YeQ"/>
                                     <constraint firstAttribute="trailing" secondItem="UmS-cd-4tl" secondAttribute="trailing" constant="12" id="xEi-Da-hzF">
                                         <variation key="widthClass=compact" constant="12"/>
                                         <variation key="widthClass=regular" constant="20"/>
@@ -87,7 +93,9 @@ Several lines</string>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="textLabel" destination="UmS-cd-4tl" id="6ZM-2W-fsZ"/>
+                        <outlet property="messageLabel" destination="UmS-cd-4tl" id="RBc-Aa-anY"/>
+                        <outlet property="titleLabel" destination="Bw4-LL-FUd" id="o7y-a9-eQh"/>
+                        <outlet property="titleLabelTopConstraint" destination="qHQ-Xv-Ppe" id="arL-iG-mYD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wff-do-Tbp" userLabel="First Responder" sceneMemberID="firstResponder"/>

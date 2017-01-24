@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlertyAlert
 
 class MasterViewController: UITableViewController {
 
@@ -32,11 +33,14 @@ class MasterViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let aa = Alerty.alert(withTitle: "Title", message: "Message")
+        
+        present(aa, animated: true, completion: nil)
     }
-
+    
     func insertNewObject(_ sender: Any) {
         objects.insert(NSDate(), at: 0)
         let indexPath = IndexPath(row: 0, section: 0)

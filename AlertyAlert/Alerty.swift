@@ -8,14 +8,18 @@
 
 import Foundation
 
-class Alerty {
+open class Alerty {
     
-    var cornerRadius = CGFloat(15)
+    open var cornerRadius = CGFloat(15)
     
-    open func alert() -> AlertyAlertController {
-        let storyboard = UIStoryboard(name: "AlertyAlert", bundle: nil)
+    open class func alert(withTitle title: String?, message: String?) -> AlertyAlertController {
+        let bundle = Bundle(for: Alerty.self)
+        let storyboard = UIStoryboard(name: "AlertyAlert", bundle: bundle)
         
         let alertyAlertController = storyboard.instantiateViewController(withIdentifier: "AlertyAlertController") as! AlertyAlertController
+        
+        alertyAlertController.title = title
+        alertyAlertController.message = message
         
         return alertyAlertController
     }
