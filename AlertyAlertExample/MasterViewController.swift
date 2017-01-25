@@ -35,12 +35,13 @@ class MasterViewController: UITableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        let alert = Alerty.alert(withTitle: "Title", message: "Message")
+
+        let alert = Alerty.default.alert(withTitle: "Title", message: "Message")
         
         let action1 = AlertyAction(title: "Action1", style: AlertyActionStyle.standart, handler: nil)
         let action2 = AlertyAction(title: "Action2", style: AlertyActionStyle.destructive, handler: nil)
-        let action3 = AlertyAction(title: "Action3", style: AlertyActionStyle.close, handler: nil)
+        var action3 = AlertyAction(title: "Action3", style: AlertyActionStyle.close, handler: nil)
+        action3.shallDismissAlert = false
         
         alert.addAction(action1)        
         alert.addAction(action2)

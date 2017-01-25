@@ -90,6 +90,7 @@ Several lines</string>
                     <connections>
                         <outlet property="buttonStackView" destination="8RV-Et-kQ3" id="Qem-xA-zW5"/>
                         <outlet property="buttonStackViewHeightConstraint" destination="cv8-eV-zgB" id="vXi-Ix-LOD"/>
+                        <outlet property="containerView" destination="bSf-HH-lgb" id="mly-m2-IR8"/>
                         <outlet property="messageLabel" destination="UmS-cd-4tl" id="RBc-Aa-anY"/>
                         <outlet property="titleLabel" destination="Bw4-LL-FUd" id="o7y-a9-eQh"/>
                         <outlet property="titleLabelTopConstraint" destination="qHQ-Xv-Ppe" id="arL-iG-mYD"/>

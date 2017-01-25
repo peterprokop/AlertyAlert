@@ -1,5 +1,6 @@
 open class AlertyAlertController: UIViewController {
 
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var buttonStackView: UIStackView!
@@ -11,6 +12,8 @@ open class AlertyAlertController: UIViewController {
     
     private var actions = [AlertyAction]()
     
+    private var appearanceSetupBlock: (() -> Void)?
+    
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -20,6 +23,8 @@ open class AlertyAlertController: UIViewController {
     
     override open func viewDidLoad() {
         super.viewDidLoad()
+        
+        appearanceSetupBlock?()
         
         titleLabel.text = title
         messageLabel.text = message
@@ -51,6 +56,12 @@ open class AlertyAlertController: UIViewController {
         }
         
         buttonStackViewHeightConstraint.constant = CGFloat(actions.count * 40)
+    }
+    
+    open func setupAppearance(_ alerty: Alerty) {
+        appearanceSetupBlock = { [weak self] in
+            self?.containerView.layer.cornerRadius = alerty.cornerRadius
+        }
     }
     
     open func addAction(_ action: AlertyAction) {
