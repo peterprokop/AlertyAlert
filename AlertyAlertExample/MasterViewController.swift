@@ -36,9 +36,17 @@ class MasterViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let aa = Alerty.alert(withTitle: "Title", message: "Message")
+        let alert = Alerty.alert(withTitle: "Title", message: "Message")
         
-        present(aa, animated: true, completion: nil)
+        let action1 = AlertyAction(title: "Action1", style: AlertyActionStyle.standart, handler: nil)
+        let action2 = AlertyAction(title: "Action2", style: AlertyActionStyle.destructive, handler: nil)
+        let action3 = AlertyAction(title: "Action3", style: AlertyActionStyle.close, handler: nil)
+        
+        alert.addAction(action1)        
+        alert.addAction(action2)
+        alert.addAction(action3)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     func insertNewObject(_ sender: Any) {

@@ -23,6 +23,7 @@
 		0D3B19A21E361C250018DCA3 /* AlertyAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B19A11E361C250018DCA3 /* AlertyAlertController.swift */; };
 		0D3B19A41E361C770018DCA3 /* AlertyAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D3B19A31E361C770018DCA3 /* AlertyAlert.storyboard */; };
 		0DA69FDD1E3620C300AA6D51 /* Alerty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA69FDC1E3620C300AA6D51 /* Alerty.swift */; };
+		0DA69FE71E38A6C300AA6D51 /* AlertyAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA69FE61E38A6C300AA6D51 /* AlertyAction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		0D3B19A11E361C250018DCA3 /* AlertyAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertyAlertController.swift; sourceTree = "<group>"; };
 		0D3B19A31E361C770018DCA3 /* AlertyAlert.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AlertyAlert.storyboard; sourceTree = "<group>"; };
 		0DA69FDC1E3620C300AA6D51 /* Alerty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerty.swift; sourceTree = "<group>"; };
+		0DA69FE61E38A6C300AA6D51 /* AlertyAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertyAction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 				0D3B19861E3619B40018DCA3 /* Info.plist */,
 				0D3B19A31E361C770018DCA3 /* AlertyAlert.storyboard */,
 				0DA69FDC1E3620C300AA6D51 /* Alerty.swift */,
+				0DA69FE61E38A6C300AA6D51 /* AlertyAction.swift */,
 			);
 			path = AlertyAlert;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DA69FDD1E3620C300AA6D51 /* Alerty.swift in Sources */,
+				0DA69FE71E38A6C300AA6D51 /* AlertyAction.swift in Sources */,
 				0D3B19A21E361C250018DCA3 /* AlertyAlertController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,7 +11,7 @@ import Foundation
 open class Alerty {
     
     open var cornerRadius = CGFloat(15)
-    
+
     open class func alert(withTitle title: String?, message: String?) -> AlertyAlertController {
         let bundle = Bundle(for: Alerty.self)
         let storyboard = UIStoryboard(name: "AlertyAlert", bundle: bundle)
