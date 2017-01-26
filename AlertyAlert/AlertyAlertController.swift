@@ -10,9 +10,9 @@ open class AlertyAlertController: UIViewController {
     
     open var message: String?
     
-    private var actions = [AlertyAction]()
+    open var style = AlertyStyle()
     
-    private var appearanceSetupBlock: (() -> Void)?
+    private var actions = [AlertyAction]()
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -24,8 +24,10 @@ open class AlertyAlertController: UIViewController {
     override open func viewDidLoad() {
         super.viewDidLoad()
         
-        appearanceSetupBlock?()
+        // Setup appearance
+        containerView.layer.cornerRadius = style.cornerRadius
         
+        // Setup labels
         titleLabel.text = title
         messageLabel.text = message
         
@@ -50,18 +52,22 @@ open class AlertyAlertController: UIViewController {
                 button.setTitleColor(color, for: .normal)
             }
             
+            // Set border
+            if let buttonBorderColor = style.buttonBorderColor {
+                let borderThickness = 1/UIScreen.main.scale
+                let frame = CGRect(x: 0, y: 0, width: button.bounds.width, height: borderThickness)
+                let borderView = UIView(frame: frame)
+                borderView.backgroundColor = buttonBorderColor
+                borderView.autoresizingMask = [.flexibleWidth]
+                button.addSubview(borderView)
+            }
+            
             buttonStackView.addArrangedSubview(button)
             
             buttonIndex += 1
         }
         
         buttonStackViewHeightConstraint.constant = CGFloat(actions.count * 40)
-    }
-    
-    open func setupAppearance(_ alerty: Alerty) {
-        appearanceSetupBlock = { [weak self] in
-            self?.containerView.layer.cornerRadius = alerty.cornerRadius
-        }
     }
     
     open func addAction(_ action: AlertyAction) {
