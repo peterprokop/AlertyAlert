@@ -1,12 +1,14 @@
 open class AlertyAlertController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var headerContainerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var buttonStackView: UIStackView!
     
     @IBOutlet var titleLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet var buttonStackViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet var headerContainerViewHeightConstraint: NSLayoutConstraint!
     
     open var message: String?
     
@@ -72,6 +74,15 @@ open class AlertyAlertController: UIViewController {
     
     open func addAction(_ action: AlertyAction) {
         actions.append(action)
+    }
+    
+    open func addHeader(_ header: UIView) {
+        headerContainerViewHeightConstraint.constant = header.frame.height
+        
+        let offsetX = (headerContainerView.frame.width - header.frame.width)/2
+        header.frame = CGRect(x: offsetX, y: 0, width: header.frame.width, height: header.frame.height)        
+        
+        headerContainerView.addSubview(header)
     }
     
     // MARK: Actions
