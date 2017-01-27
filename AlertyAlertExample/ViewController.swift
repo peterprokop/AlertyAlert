@@ -99,6 +99,8 @@ class ViewController: UITableViewController {
         let item = items[indexPath.row]
         
         item.block()
+        
+        tableView.deselectRow(at: indexPath, animated: false)
     }
     
 }
