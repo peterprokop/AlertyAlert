@@ -47,10 +47,21 @@ open class AlertyAlertController: UIViewController {
             button.setTitle(action.title, for: .normal)
             
             // Set font & color if needed
-            if let font = action.style.font {
+            let actionStyle: AlertyActionStyle
+            
+            switch action.style {
+            case .default:
+                actionStyle = style.defaultActionStyle
+            case .destructive:
+                actionStyle = style.destructiveActionStyle
+            case .cancel:
+                actionStyle = style.cancelActionStyle
+            }
+            
+            if let font = actionStyle.font {
                 button.titleLabel?.font = font
             }
-            if let color = action.style.tintColor {
+            if let color = actionStyle.tintColor {
                 button.setTitleColor(color, for: .normal)
             }
             
