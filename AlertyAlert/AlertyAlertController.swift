@@ -29,6 +29,13 @@ open class AlertyAlertController: UIViewController {
         // Setup appearance
         containerView.layer.cornerRadius = style.cornerRadius
         
+        if let titleFont = style.titleFont {
+            titleLabel.font = titleFont
+        }
+        if let messageFont = style.messageFont {
+            messageLabel.font = messageFont
+        }
+        
         // Add header
         if let headerContents = headerContents {
             headerContainerViewHeightConstraint.constant = headerContents.frame.height

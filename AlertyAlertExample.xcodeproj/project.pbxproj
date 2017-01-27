@@ -24,6 +24,7 @@
 		0DA69FDD1E3620C300AA6D51 /* Alerty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA69FDC1E3620C300AA6D51 /* Alerty.swift */; };
 		0DA69FE71E38A6C300AA6D51 /* AlertyAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA69FE61E38A6C300AA6D51 /* AlertyAction.swift */; };
 		0DC6D3FD1E3B6273004731A0 /* SampleAlertHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DC6D3FC1E3B6273004731A0 /* SampleAlertHeader.xib */; };
+		0DC6D4011E3B83DD004731A0 /* Mochary.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DC6D4001E3B83DD004731A0 /* Mochary.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		0DA69FDC1E3620C300AA6D51 /* Alerty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerty.swift; sourceTree = "<group>"; };
 		0DA69FE61E38A6C300AA6D51 /* AlertyAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertyAction.swift; sourceTree = "<group>"; };
 		0DC6D3FC1E3B6273004731A0 /* SampleAlertHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleAlertHeader.xib; sourceTree = "<group>"; };
+		0DC6D4001E3B83DD004731A0 /* Mochary.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Mochary.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 		0D3B194D1E3617D60018DCA3 /* AlertyAlertExample */ = {
 			isa = PBXGroup;
 			children = (
+				0DC6D4001E3B83DD004731A0 /* Mochary.ttf */,
 				0D3B194E1E3617D60018DCA3 /* AppDelegate.swift */,
 				0D3B19501E3617D60018DCA3 /* ViewController.swift */,
 				0D3B19541E3617D60018DCA3 /* Main.storyboard */,
@@ -393,6 +396,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DC6D4011E3B83DD004731A0 /* Mochary.ttf in Resources */,
 				0D3B195B1E3617D60018DCA3 /* LaunchScreen.storyboard in Resources */,
 				0DC6D3FD1E3B6273004731A0 /* SampleAlertHeader.xib in Resources */,
 				0D3B19581E3617D60018DCA3 /* Assets.xcassets in Resources */,
@@ -626,6 +630,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Prokop.AlertyAlertExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -639,6 +644,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Prokop.AlertyAlertExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

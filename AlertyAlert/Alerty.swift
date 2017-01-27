@@ -27,6 +27,12 @@ open class Alerty {
         return alertyAlertController
     }
     
+    public init() {}
+    
+    public init(style: AlertyStyle) {
+        self.style = style
+    }
+    
 }
 
 open class AlertyStyle {
@@ -34,8 +40,8 @@ open class AlertyStyle {
     
     open var buttonBorderColor: UIColor? = UIColor.lightGray
     
-    open var titleFont = UIColor.lightGray
-    open var messageFont = UIColor.lightGray
+    open var titleFont: UIFont?
+    open var messageFont: UIFont?
     
     open var defaultActionStyle: AlertyActionStyle {
         let font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightRegular)
@@ -53,4 +59,7 @@ open class AlertyStyle {
         return AlertyActionStyle(font: font, tintColor: color)
     }
     
+    public init() {
+        
+    }
 }

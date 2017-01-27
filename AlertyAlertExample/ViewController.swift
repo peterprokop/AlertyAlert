@@ -19,10 +19,25 @@ class ViewController: UITableViewController {
         let defaultAlertItem = ExampleListItem(title: "Boring default alert") {
             let alert = Alerty.default.alert(withTitle: "Title", message: "Message")
             
-            let action1 = AlertyAction(title: "Default style action", style: .default, handler: nil)
-            let action2 = AlertyAction(title: "Destructive style action", style: .destructive, handler: nil)
-            let action3 = AlertyAction(title: "Cancel style action", style: .cancel, handler: nil)
-            var action4 = AlertyAction(title: "This one doesn't dismiss alert", style: .default, handler: nil)
+            // You can use different action styles just like with regular *UIAlertController*
+            let action1 = AlertyAction(title: "Default style action", style: .default, handler: {
+                _ in
+                print("action1")
+            })
+            let action2 = AlertyAction(title: "Destructive style action", style: .destructive, handler: {
+                _ in
+                print("action2")
+            })
+            let action3 = AlertyAction(title: "Cancel style action", style: .cancel, handler: {
+                _ in
+                print("action3")
+            })
+            
+            // If *shallDismissAlert* set to *false*, alert will not be dismissed
+            var action4 = AlertyAction(title: "This one doesn't dismiss alert", style: .default, handler: {
+                _ in
+                print("action4")
+            })
             action4.shallDismissAlert = false
             
             alert.addAction(action1)
@@ -34,12 +49,23 @@ class ViewController: UITableViewController {
         }
         
         let alertWithHeaderItem = ExampleListItem(title: "Alert with header") {
+            // Create custom style and tweak it a bit
+            let style = AlertyStyle()
+            style.cornerRadius = 10
+            style.titleFont = UIFont(name: "MocharyPERSONALUSEONLY", size: 32)
+            style.messageFont = UIFont(name: "MocharyPERSONALUSEONLY", size: 24)
+            
+            // Init new *Alerty* with our style
+            let alerty = Alerty(style: style)
+            
+            // Load alert header from *.xib*
             let header = Bundle.main.loadNibNamed("SampleAlertHeader", owner: nil, options: nil)![0] as! UIView
             
             let title = "Avertissement du lieutenant politiquement correct"
             let message = "Votre message pourrait être offensive pour les autochtones de la région de Yamal.\nVeuillez corriger votre message."
             
-            let alert = Alerty.default.alert(withTitle: title, message: message)
+            // Use our custom *alerty* instead of *Alerty.default*
+            let alert = alerty.alert(withTitle: title, message: message)
             let closeAction = AlertyAction(title: "I don't understand French!", style: .cancel, handler: nil)
             
             alert.addAction(closeAction)
