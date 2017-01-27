@@ -33,7 +33,25 @@ class ViewController: UITableViewController {
             self.present(alert, animated: true, completion: nil)
         }
         
-        items.append(defaultAlertItem)
+        let alertWithHeaderItem = ExampleListItem(title: "Alert with header") {
+            let header = Bundle.main.loadNibNamed("SampleAlertHeader", owner: nil, options: nil)![0] as! UIView
+            
+            let title = "Avertissement du lieutenant politiquement correct"
+            let message = "Votre message pourrait être offensive pour les autochtones de la région de Yamal.\nVeuillez corriger votre message."
+            
+            let alert = Alerty.default.alert(withTitle: title, message: message)
+            let closeAction = AlertyAction(title: "I don't understand French!", style: .cancel, handler: nil)
+            
+            alert.addAction(closeAction)
+            alert.addHeader(header)
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        items = [
+            defaultAlertItem,
+            alertWithHeaderItem
+        ]
     }
 
     // MARK: - Table View

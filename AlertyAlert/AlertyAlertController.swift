@@ -11,7 +11,7 @@ open class AlertyAlertController: UIViewController {
     @IBOutlet var headerContainerViewHeightConstraint: NSLayoutConstraint!
     
     open var message: String?
-    
+    open var headerContents: UIView?
     open var style = AlertyStyle()
     
     private var actions = [AlertyAction]()
@@ -28,6 +28,18 @@ open class AlertyAlertController: UIViewController {
         
         // Setup appearance
         containerView.layer.cornerRadius = style.cornerRadius
+        
+        // Add header
+        if let headerContents = headerContents {
+            headerContainerViewHeightConstraint.constant = headerContents.frame.height
+            
+            let offsetX = (headerContainerView.frame.width - headerContents.frame.width)/2
+            headerContents.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
+            
+            headerContents.frame = CGRect(x: offsetX, y: 0, width: headerContents.frame.width, height: headerContents.frame.height)
+            
+            headerContainerView.addSubview(headerContents)
+        }
         
         // Setup labels
         titleLabel.text = title
@@ -88,12 +100,7 @@ open class AlertyAlertController: UIViewController {
     }
     
     open func addHeader(_ header: UIView) {
-        headerContainerViewHeightConstraint.constant = header.frame.height
-        
-        let offsetX = (headerContainerView.frame.width - header.frame.width)/2
-        header.frame = CGRect(x: offsetX, y: 0, width: header.frame.width, height: header.frame.height)        
-        
-        headerContainerView.addSubview(header)
+        headerContents = header
     }
     
     // MARK: Actions

@@ -23,6 +23,7 @@
 		0D3B19A41E361C770018DCA3 /* AlertyAlert.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D3B19A31E361C770018DCA3 /* AlertyAlert.storyboard */; };
 		0DA69FDD1E3620C300AA6D51 /* Alerty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA69FDC1E3620C300AA6D51 /* Alerty.swift */; };
 		0DA69FE71E38A6C300AA6D51 /* AlertyAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA69FE61E38A6C300AA6D51 /* AlertyAction.swift */; };
+		0DC6D3FD1E3B6273004731A0 /* SampleAlertHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DC6D3FC1E3B6273004731A0 /* SampleAlertHeader.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		0D3B19A31E361C770018DCA3 /* AlertyAlert.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AlertyAlert.storyboard; sourceTree = "<group>"; };
 		0DA69FDC1E3620C300AA6D51 /* Alerty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerty.swift; sourceTree = "<group>"; };
 		0DA69FE61E38A6C300AA6D51 /* AlertyAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertyAction.swift; sourceTree = "<group>"; };
+		0DC6D3FC1E3B6273004731A0 /* SampleAlertHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleAlertHeader.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				0D3B19571E3617D60018DCA3 /* Assets.xcassets */,
 				0D3B19591E3617D60018DCA3 /* LaunchScreen.storyboard */,
 				0D3B195C1E3617D60018DCA3 /* Info.plist */,
+				0DC6D3FC1E3B6273004731A0 /* SampleAlertHeader.xib */,
 			);
 			path = AlertyAlertExample;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D3B195B1E3617D60018DCA3 /* LaunchScreen.storyboard in Resources */,
+				0DC6D3FD1E3B6273004731A0 /* SampleAlertHeader.xib in Resources */,
 				0D3B19581E3617D60018DCA3 /* Assets.xcassets in Resources */,
 				0D3B19561E3617D60018DCA3 /* Main.storyboard in Resources */,
 			);
