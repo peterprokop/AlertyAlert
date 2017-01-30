@@ -43,6 +43,7 @@ self.present(alert, animated: true, completion: nil)
 ```
 
 ### Customized alert
+Most of the alert parts can be customized - fonts, colors, corner radius, even alert header!
 ![Force update alert](http://i.imgur.com/iR4SnZv.png)
 
 Code:
