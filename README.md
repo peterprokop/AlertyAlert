@@ -110,7 +110,7 @@ Just clone and drop `AlertyAlert/AlertyAlert` subfolder to your project/workspac
 ### Carthage
 * `> Cartfile`
 * `nano Cartfile`
-* put `github "peterprokop/AlertyAlert" == 0.0.1` (or latest version) into Cartfile
+* put `github "peterprokop/AlertyAlert" == 0.2.0` (or latest version) into Cartfile
 * Save it: `ctrl-x`, `y`, `enter`
 * Run `carthage update`
 * Copy `AlertyAlert.framework` from `Carthage/Build/iOS` to your project
