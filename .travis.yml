@@ -1,0 +1,4 @@
+language: objective-c
+osx_image: xcode8
+script:
+  - xcodebuild -project AlertyAlertExample.xcodeproj -scheme AlertyAlert -destination 'platform=iOS Simulator,name=iPhone 6,OS=10.0' test
