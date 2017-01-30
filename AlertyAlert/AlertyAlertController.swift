@@ -27,7 +27,11 @@ open class AlertyAlertController: UIViewController {
         super.viewDidLoad()
         
         // Setup appearance
+        containerView.backgroundColor = style.backgroundColor
         containerView.layer.cornerRadius = style.cornerRadius
+        
+        titleLabel.textColor = style.titleColor
+        messageLabel.textColor = style.messageColor
         
         if let titleFont = style.titleFont {
             titleLabel.font = titleFont

@@ -28,6 +28,11 @@ public struct AlertyAction {
 public struct AlertyActionStyle {
     public var font: UIFont?
     public var tintColor: UIColor?
+    
+    public init(font: UIFont?, tintColor: UIColor?) {
+        self.font = font
+        self.tintColor = tintColor
+    }
 }
 
 public enum AlertyActionStyleType {

@@ -43,9 +43,17 @@ class ViewController: UITableViewController {
         let alertWithHeaderItem = ExampleListItem(title: "Alert with header") {
             // Create custom style and tweak it a bit
             let style = AlertyStyle()
-            style.cornerRadius = 10
+            style.cornerRadius = 5
+            style.backgroundColor =  UIColor(red: 1, green: 1, blue: 1, alpha: 0.8)
+
             style.titleFont = UIFont(name: "MocharyPERSONALUSEONLY", size: 32)
             style.messageFont = UIFont(name: "MocharyPERSONALUSEONLY", size: 24)
+            
+            let textColor = UIColor(red: 0.098, green: 0.584, blue: 0.678, alpha: 1)
+            style.titleColor = textColor
+            style.messageColor = textColor
+            
+            style.cancelActionStyle = AlertyActionStyle(font: UIFont(name: "MocharyPERSONALUSEONLY", size: 18)!, tintColor: UIColor.brown)
             
             // Init new *Alerty* with our style
             let alerty = Alerty(style: style)
