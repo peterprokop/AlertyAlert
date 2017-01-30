@@ -18,7 +18,7 @@ Typical AlertyAlert usage examples:
 ![Classical alert](http://i.imgur.com/ZySARNE.png)
 
 Code:
-```
+```swift
 let alert = Alerty.default.alert(withTitle: "Title", message: "Message")
             
 // You can use different action styles just like with regular *UIAlertController*
@@ -48,7 +48,7 @@ Most of the alert parts can be customized - fonts, colors, corner radius, even a
 ![Force update alert](http://i.imgur.com/iR4SnZv.png)
 
 Code:
-```
+```swift
 // Create custom style and tweak it a bit
 let style = AlertyStyle()
 style.cornerRadius = 5
@@ -88,7 +88,7 @@ You can disable alert dismissal for certain actions
 ![Force update alert](http://i.imgur.com/ft5HAWU.png)
 
 Code:
-```
+```swift
 let alert = Alerty.default.alert(withTitle: "Warning!", message: "Please update your application ASAP!")
 
 // If *shallDismissAlert* set to *false*, alert will not be dismissed
