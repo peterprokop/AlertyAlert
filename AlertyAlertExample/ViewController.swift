@@ -33,17 +33,9 @@ class ViewController: UITableViewController {
                 print("action3")
             })
             
-            // If *shallDismissAlert* set to *false*, alert will not be dismissed
-            var action4 = AlertyAction(title: "This one doesn't dismiss alert", style: .default, handler: {
-                _ in
-                print("action4")
-            })
-            action4.shallDismissAlert = false
-            
             alert.addAction(action1)
             alert.addAction(action2)
             alert.addAction(action3)
-            alert.addAction(action4)
             
             self.present(alert, animated: true, completion: nil)
         }
@@ -74,9 +66,24 @@ class ViewController: UITableViewController {
             self.present(alert, animated: true, completion: nil)
         }
         
+        let forceUpdateAlertItem = ExampleListItem(title: "Undismissable alert") {
+            let alert = Alerty.default.alert(withTitle: "Warning!", message: "Please update your application ASAP!")
+            
+            // If *shallDismissAlert* set to *false*, alert will not be dismissed
+            var updateAction = AlertyAction(title: "This one doesn't dismiss alert", style: .default, handler: {
+                _ in
+                print("updateAction")
+            })
+            updateAction.shallDismissAlert = false
+            
+            alert.addAction(updateAction)
+            self.present(alert, animated: true, completion: nil)
+        }
+        
         items = [
             defaultAlertItem,
-            alertWithHeaderItem
+            alertWithHeaderItem,
+            forceUpdateAlertItem
         ]
     }
 
