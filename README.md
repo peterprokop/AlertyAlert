@@ -126,3 +126,8 @@ Cocoapods will be supported in the nearest future
 - iOS 9.0+
 - Xcode 8.0+
 - Swift 3.0
+
+## Other Projects
+
+- [SwiftOverlays](https://github.com/peterprokop/SwiftOverlays) - Swift GUI library for displaying various popups and notifications.
+- [StarryStars](https://github.com/peterprokop/StarryStars) - iOS GUI library for displaying and editing ratings.
