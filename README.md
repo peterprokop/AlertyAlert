@@ -44,6 +44,7 @@ self.present(alert, animated: true, completion: nil)
 
 ### Customized alert
 Most of the alert parts can be customized - fonts, colors, corner radius, even alert header!
+
 ![Force update alert](http://i.imgur.com/iR4SnZv.png)
 
 Code:
@@ -83,6 +84,7 @@ self.present(alert, animated: true, completion: nil)
 
 ### Force update alert
 You can disable alert dismissal for certain actions
+
 ![Force update alert](http://i.imgur.com/ft5HAWU.png)
 
 Code:
