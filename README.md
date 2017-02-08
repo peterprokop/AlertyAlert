@@ -118,8 +118,18 @@ Just clone and drop `AlertyAlert/AlertyAlert` subfolder to your project/workspac
 * Add `import AlertyAlert` on top of your view controller's code
 
 ### Cocoapods
+- Make sure that you use latest stable Cocoapods version: `pod --version`
+- If not, update it: `sudo gem install cocoapods`
+- `pod init` in you project root dir
+- `nano Podfile`, add:
 
-Cocoapods will be supported in the nearest future
+```
+pod 'AlertyAlert', '~> 0.2.1'
+``` 
+- Save it: `ctrl-x`, `y`, `enter`
+- `pod update`
+- Open generated `.xcworkspace`
+- Don't forget to import AlertyAlert: `import AlertyAlert`!
 
 ## Requirements
 
