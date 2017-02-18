@@ -1,13 +1,13 @@
-[![Build Status](https://travis-ci.org/peterprokop/AlertyAlert.svg?branch=master)](https://travis-ci.org/peterprokop/AlertyAlert)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-
-# AlertyAlert
+![AlertyAlert Logo](http://i.imgur.com/6CCBWTM.gif)
 
 AlertyAlert is a custom alert controller implementation which is:
 - Simple
 - Customizable
 - Nice
 - Fluffy
+
+[![Build Status](https://travis-ci.org/peterprokop/AlertyAlert.svg?branch=master)](https://travis-ci.org/peterprokop/AlertyAlert)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 ## Features
 
